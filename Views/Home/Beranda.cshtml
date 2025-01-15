@@ -1,0 +1,530 @@
+@{
+	ViewData["Title"] = "Dashboard";
+}
+
+<div class="d-flex flex-row py-4 justify-content-between">
+	<div class="flex-fill title-renja">
+		Dashboard Pemetaan Sosial @ViewBag.namaCabang
+	</div>
+	@if (!(User.HasClaim(x => x.Value == "BM/SM" || x.Value == "CSR Local" || x.Value == "CSR HO"))) {
+	<form method="get" action="@Url.Action("Beranda", "Home")">
+		<input type="hidden" name="pilarLine" value="@ViewBag.PilarLine" />
+		<input type="hidden" name="pilarMap" value="@ViewBag.PilarMap" />
+		<input type="hidden" name="selectedYear" value="@ViewBag.selectedYear" />
+		<div class="dropdown ms-auto me-2">
+			@Html.DropDownList("selectedCabang", new SelectList(ViewBag.CabangList, ViewBag.selectedCabang), "--Pilih Cabang--", 
+				new { @class = "form-select", style = "font-size:12px;", onchange = "this.form.submit()" })
+		</div>
+	</form> 
+	}
+	<form method="get" action="@Url.Action("Beranda", "Home")">
+		<input type="hidden" name="pilarLine" value="@ViewBag.PilarLine" />
+		<input type="hidden" name="pilarMap" value="@ViewBag.PilarMap" />
+		<input type="hidden" name="selectedCabang" value="@ViewBag.selectedCabang" />
+		<div class="dropdown">
+			@Html.DropDownList("selectedYear", new SelectList(ViewBag.TahunList, ViewBag.selectedYear), "--Pilih Tahun--", 
+				new { @class = "form-select", style = "font-size:12px;", onchange = "this.form.submit()" })
+		</div>
+	</form> 
+</div>
+
+<div class="row d-flex">
+	<div class="col-xl-2 col-sm-6 col-12">
+		<div class="mb-4 card-pemetaanpilar">
+			<div class="card-body">
+				<div class="d-flex flex-row">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+						<i class="fa-solid fa-globe" style="color: #FFCA0D;"></i>
+					</div>
+					<div class="ms-2">
+						<div class="mt-2 d-flex align-items-center title-dashboard">
+							Luas Wilayah
+						</div>
+						<div class="mb-2 angka-pilar" style="color: #000000;">@ViewBag.luasWilayah Ha</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-2 col-sm-6 col-12">
+		<div class="mb-4 card-pemetaanpilar">
+			<div class="card-body">
+				<div class="d-flex flex-row">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+						<i class="fa-solid fa-mountain" style="color: #FFCA0D;"></i>
+					</div>
+					<div class="ms-2">
+						<div class="mt-2 d-flex align-items-center title-dashboard">
+							Jenis Topografi
+						</div>
+						<div class="mb-2 angka-pilar" style="color: #000000;">@ViewBag.topografiDesa</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-2 col-sm-6 col-12">
+		<div class="mb-4 card-pemetaanpilar">
+			<div class="card-body">
+				<div class="d-flex flex-row">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+						<i class="fa-solid fa-line-chart" style="color: #FFCA0D;"></i>
+					</div>
+					<div class="ms-2">
+						<div class="mt-2 d-flex align-items-center title-dashboard">
+							Perkembangan Desa
+						</div>
+						<div class="mb-2 angka-pilar" style="color: #000000;">@ViewBag.tingkatPerkembangan</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-2 col-sm-6 col-12">
+		<div class="mb-4 card-pemetaanpilar">
+			<div class="card-body">
+				<div class="d-flex flex-row">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+						<i class="fa-solid fa-sack-dollar" style="color: #FFCA0D;"></i>
+					</div>
+					<div class="ms-2">
+						<div class="mt-2 d-flex align-items-center title-dashboard">
+							UMR Kota
+						</div>
+						<div class="mb-2 angka-pilar" style="color: #000000;">@ViewBag.umrKabupatenKota</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-2 col-sm-6 col-12">
+		<div class="mb-4 card-pemetaanpilar">
+			<div class="card-body">
+				<div class="d-flex flex-row">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+						<i class="fa-solid fa-users" style="color: #FFCA0D;"></i>
+					</div>
+					<div class="ms-2">
+						<div class="mt-2 d-flex align-items-center title-dashboard">
+							Penduduk
+						</div>
+						<div class="mb-2 angka-pilar" style="color: #000000;">@ViewBag.jumlahPenduduk Orang</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-2 col-sm-6 col-12">
+		<div class="mb-4 card-pemetaanpilar">
+			<div class="card-body">
+				<div class="d-flex flex-row">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+						<i class="fa-solid fa-user-group" style="color: #FFCA0D;"></i>
+					</div>
+					<div class="ms-2">
+						<div class="mt-2 d-flex align-items-center title-dashboard">
+							Penduduk Miskin
+						</div>
+						<div class="mb-2 angka-pilar" style="color: #000000;">@ViewBag.jumlahPendudukMiskin Orang</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<!-- Perbandingan Skor Tiap Pilar -->
+	<div class="col-lg-7 col-sm-12 col-12 mb-4">
+		<div class="card-pemetaanpilar h-100" style="height: 400px;"> 
+			<div class="card-body d-flex flex-column" style="height: 100%;">
+				<div class="d-flex flex-row align-items-center mb-2">
+					<div class="card d-flex justify-content-center align-items-center"
+							style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+						<i class="fa-solid fa-chart-simple" style="color: #FFCA0D;"></i>
+					</div>
+					<div class="ms-3 title-dashboard" style="flex-grow: 1;">
+						Perbandingan Skor Per Pilar
+					</div>
+				</div>
+				<div id="chart_div" style="width: 100%; height: 100%;"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-sm-6 col-12 mb-4">
+	<div class="card-pemetaanpilar h-100">
+		<div class="card-body">
+			<div class="d-flex flex-row">
+				<div class="card d-flex justify-content-center align-items-center"
+					style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+					<i class="fa-solid fa-circle-half-stroke" style="color: #FFCA0D;"></i>
+				</div>
+				<div class="ms-3" style="flex-grow: 1;"> 
+					<div class="mt-2 d-flex align-items-center title-dashboard">
+						Total Skor Pilar
+					</div>
+				</div>
+			</div>
+			<div class="position-relative mt-3">
+				<canvas id="gaugeChart" class="w-100"></canvas>
+				<div class="position-absolute top-50 start-50 translate-middle text-center">
+					<span class="fs-3 fw-bold angka-pilar">@ViewBag.gaugeData.DataValues</span><br>
+					<span class="fs-6 title-dashboard">@ViewBag.gaugeData.Labels</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="col-xl-2 col-sm-6 col-12 mb-4">
+		<div class="card-pemetaanpilar h-100">
+			<div class="card-body">
+				<div class="d-flex flex-row mb-2">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+						<i class="fa-solid fa-circle-info" style="color: #FFCA0D;"></i>
+					</div>
+					<div class="ms-3">
+						<div class="mt-2 d-flex align-items-center title-dashboard">
+							Keterangan
+						</div>
+					</div>
+				</div>
+				<div class="d-flex flex-row align-items-center mt-4 pt-3 pb-3">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #1A1A1A; border-color: transparent; width: 35px; height: 15px;">
+					</div>
+					<div class="ms-3">
+						<div class="d-flex align-items-center angka-pilar" style="line-height: 1.2; font-size: 14px;">
+							Prioritas Utama
+						</div>
+					</div>
+				</div>
+				<div class="d-flex flex-row align-items-center mt-2 pt-3 pb-3">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #F8183E; border-color: transparent; width: 35px; height: 15px;">
+					</div>
+					<div class="ms-3">
+						<div class="d-flex align-items-center angka-pilar" style="line-height: 1.2; font-size: 14px;">
+							Prioritas Sedang
+						</div>
+					</div>
+				</div>
+				<div class="d-flex flex-row align-items-center mt-2 pt-3 pb-3">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #ffca0d; border-color: transparent; width: 35px; height: 15px;">
+					</div>
+					<div class="ms-3">
+						<div class="d-flex align-items-center angka-pilar" style="line-height: 1.2; font-size: 14px;">
+							Membutuhkan
+						</div>
+					</div>
+				</div>
+				<div class="d-flex flex-row align-items-center mt-2 pt-3 pb-3">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #13CE66; border-color: transparent; width: 35px; height: 15px;">
+					</div>
+					<div class="ms-3">
+						<div class="d-flex align-items-center angka-pilar" style="line-height: 1.2; font-size: 14px;">
+							Baik
+						</div>
+					</div>
+				</div>
+				<div class="d-flex flex-row align-items-center mt-2 pt-3 pb-3">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #0D6EFD; border-color: transparent; width: 35px; height: 15px;">
+					</div>
+					<div class="ms-3">
+						<div class="d-flex align-items-center angka-pilar" style="line-height: 1.2; font-size: 14px;">
+							Sangat Baik
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-7">
+		<div class="mb-4 card-pemetaanpilar" style="height: 500px;">
+			<div class="card-body d-flex flex-column" style="height: 100%;">
+				<div class="d-flex flex-row align-items-center mb-2">
+					<div class="card d-flex justify-content-center align-items-center"
+						style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+						<i class="fa-solid fa-map-location-dot" style="color: #FFCA0D;"></i>
+					</div>
+					<div class="ms-3 title-dashboard" style="flex-grow: 1;">
+						Persebaran Area Berdasarkan Status
+					</div>
+					<form method="get" action="@Url.Action("Beranda", "Home")">
+						<input type="hidden" name="selectedYear" value="@ViewBag.selectedYear" />
+						<input type="hidden" name="pilarLine" value="@ViewBag.PilarLine" />
+						<div class="dropdown">
+							@Html.DropDownList("pilarMap", 
+								new SelectList(ViewBag.pilarList, ViewBag.PilarMap), 
+								"--Pilih Pilar--", 
+								new { @class = "form-select", style = "font-size:12px;", onchange = "this.form.submit()" })
+						</div>
+					</form>  
+				</div>
+				<div id="map" style="width: 100%; height: 500px; background-color: #ffffff;"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-5">
+		<div class="mb-4 card-pemetaanpilar" style="background-color: #FFF9E5; height: 500px;">
+			<div class="card-body d-flex flex-column" style="height: 100%;">
+				<div class="d-flex flex-row justify-content-between">
+					<div class="d-flex flex-row align-items-center mb-2">
+						<div class="card d-flex justify-content-center align-items-center"
+							style="background-color: #ffffff; border-color: transparent; width: 32px; height: 32px;">
+							<i class="fa-solid fa-chart-line" style="color: #FFCA0D;"></i>
+						</div>
+						<div class="ms-3 title-dashboard" style="flex-grow: 1;">
+							Perbandingan Skor Per Tahun
+						</div>
+					</div>
+					<form method="get" action="@Url.Action("Beranda", "Home")">
+						<input type="hidden" name="selectedYear" value="@ViewBag.selectedYear" />
+						<input type="hidden" name="pilarMap" value="@ViewBag.PilarMap" />
+						<div class="dropdown">
+							@Html.DropDownList("pilarLine", 
+								new SelectList(ViewBag.pilarList, ViewBag.PilarLine), 
+								"--Pilih Pilar--", 
+								new { @class = "form-select", style = "font-size:12px;", onchange = "this.form.submit()" })
+						</div>
+					</form> 
+				</div>
+				<div id="curve_chart" style="width: 100%; height: 100%"></div>
+				@* <canvas id="chart-line" width="299" height="200" class="chartjs-render-monitor" style="display: block; width: 299px; height: 200px;"></canvas> *@
+			</div>
+		</div>
+	</div>
+</div>
+
+@* Map *@
+<script type="module">
+    import { load_map } from '/js/leaflet-init.js';
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // The JSON data generated server-side
+        var geojsonData = @Html.Raw(Json.Serialize(ViewBag.dashboardMap));
+
+        // Convert the server data to GeoJSON format
+        geojsonData = geojsonData.map(item => ({
+            type: "Feature",
+            geometry: {
+                type: "Point",
+                coordinates: [item.longitude, item.latitude]
+            },
+            properties: {
+                branch: item.nama_cabang,
+                jumlah: item.jumlah
+            }
+        }));
+
+		console.log(geojsonData);
+
+        // Pass the GeoJSON data to the load_map function
+        load_map(JSON.stringify(geojsonData));
+    });
+</script>
+
+@* Bar Chart *@
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        // Ambil data dari ViewBag
+        var labels = @Html.Raw(Json.Serialize(ViewBag.barData.Labels));
+        var dataValues = @Html.Raw(Json.Serialize(ViewBag.barData.DataValues));
+
+        // Ubah format data untuk Google Charts
+        var dataArray = [['Element', 'Skor Pilar', { role: 'style' }]];
+
+        for (var i = 0; i < labels.length; i++) {
+            var color;
+            if (dataValues[i] <= 20) {
+				color = '#1A1A1A'; 
+			} else if (dataValues[i] <= 40) {
+				color = '#F8183E';  
+			} else if (dataValues[i] <= 60) {
+				color = '#FFCA0D'; 
+			} else if (dataValues[i] <= 80) {
+				color = '#13CE66'; 
+			} else {
+				color = '#0D6EFD';
+			}
+
+            dataArray.push([labels[i], dataValues[i], 'color: ' + color]); 
+        }
+
+        var data = google.visualization.arrayToDataTable(dataArray);
+
+        var options = {
+            legend: { position: 'none' },
+            bar: { groupWidth: '75%' },
+            isStacked: false,
+            vAxis: {
+                ticks: [0, 20, 40, 60, 80, 100] // Menentukan nilai untuk sumbu Y
+            },
+			chartArea: {
+                left: 85,
+                top: 25,
+                right: 5, 
+                bottom: 25, 
+                width: '100%',
+                height: '70%' 
+            }
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+        window.addEventListener('resize', function() {
+            chart.draw(data, options);
+        });
+    }
+</script>
+
+@* Gauge Chart *@
+<script>
+    var gaugeValue = @Html.Raw(Json.Serialize(ViewBag.gaugeData.DataValues)); 
+    var remainingValue = 100 - gaugeValue; 
+
+    var backgroundColor;
+	var lightColor = '#F2F2F2'; 
+
+	if (gaugeValue <= 20) {
+		backgroundColor = ['#1A1A1A', lightColor];
+	} else if (gaugeValue <= 40) {
+		backgroundColor = ['#F8183E', lightColor];
+	} else if (gaugeValue <= 60) {
+		backgroundColor = ['#FFCA0D', lightColor];
+	} else if (gaugeValue <= 80) {
+		backgroundColor = ['#13CE66', lightColor];
+	} else {
+		backgroundColor = ['#0D6EFD', lightColor];
+	}
+
+    const ctx2 = document.getElementById('gaugeChart').getContext('2d');
+
+    const gaugeChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [gaugeValue, remainingValue],
+                backgroundColor: backgroundColor,
+				hoverBackgroundColor: [backgroundColor[0], lightColor],
+                borderWidth: 0,
+                cutout: '90%',
+                animation: {
+                    animateRotate: true,
+                    duration: 1500       
+                }
+            }]
+        },
+        options: {
+            rotation: -Math.PI / 2, 
+            circumference: Math.PI * 2, 
+            responsive: true,
+            tooltips: { enabled: false },
+            animation: {
+                duration: 0 
+            }
+        }
+    });
+
+    document.querySelector('.percentage').style.transform = 'rotate(' + ((gaugeValue / 100.0) * 180) + 'deg)';
+</script>
+
+
+@* Map *@
+<script>
+    google.charts.load('current', {
+    'packages': ['map'],
+    // Note: you will need to get a mapsApiKey for your project.
+    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+    'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+    
+    });
+    google.charts.setOnLoadCallback(drawMap);
+
+    function drawMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['Country', 'Population'],
+        ['China', 'China: 1,363,800,000'],
+        ['India', 'India: 1,242,620,000'],
+        ['US', 'US: 317,842,000'],
+        ['Indonesia', 'Indonesia: 247,424,598'],
+        ['Brazil', 'Brazil: 201,032,714'],
+        ['Pakistan', 'Pakistan: 186,134,000'],
+        ['Nigeria', 'Nigeria: 173,615,000'],
+        ['Bangladesh', 'Bangladesh: 152,518,015'],
+        ['Russia', 'Russia: 146,019,512'],
+        ['Japan', 'Japan: 127,120,000']
+      ]);
+
+    var options = {
+      showTooltip: true,
+      showInfoWindow: true
+    };
+
+    var map = new google.visualization.Map(document.getElementById('chartMap_div'));
+
+    map.draw(data, options);
+  };
+  </script>
+
+@* Line Chart *@
+<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+		var labels = @Html.Raw(Json.Serialize(ViewBag.lineData.Labels));
+		var dataValues = @Html.Raw(Json.Serialize(ViewBag.lineData.DataValues));
+
+		var dataArray = [['Year', 'Skor Pilar']];
+		for (var i = 0; i < labels.length; i++) {
+			dataArray.push([String(labels[i]), dataValues[i]]);
+		}
+
+		var data = google.visualization.arrayToDataTable(dataArray);
+
+		var options = {
+			curveType: 'function',
+			backgroundColor: '#FFF9E5',
+			colors: ['#1A1A1A'],
+			legend: { position: 'none' },
+			vAxis: {
+                ticks: [0, 20, 40, 60, 80, 100]
+            },
+			hAxis: {
+				ticks: labels,
+				format: '####',
+				gridlines: { color: 'none' }
+			},
+			chartArea: {
+				left: 85, 
+				right: 5,  
+				width: '90%',
+				height: '70%'
+			}
+		};
+
+		var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+		chart.draw(data, options);
+	}
+
+	window.addEventListener('resize', function() {
+		drawChart();
+	});
+</script>

@@ -1,0 +1,156 @@
+@model IEnumerable<dynamic>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    var periodeDokumen = item.PeriodeDokumen;
+    var persetujuanDokumenList = item.PersetujuanDokumen;
+
+    @for (int i = 0; i < persetujuanDokumenList.Count; i++)
+    {
+        var persetujuanDokumen = persetujuanDokumenList[i];
+        var accordionId = $"flush-collapse-{i}"; 
+
+        <div class="persetujuan-section">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@accordionId" aria-expanded="false" aria-controls="@accordionId">
+                            <label class="title-pilar">
+                                Status @persetujuanDokumen.disetujui_untuk <i class="fa-solid fa-play"></i> 
+                                <span style="color: @(persetujuanDokumen.disetujui_flag == "Disetujui" ? "#13CE66" : "#FFCA0D");">
+                                    <i class="fa-solid @(persetujuanDokumen.disetujui_flag == "Disetujui" ? "fa-square-check" : "fa-clock")"></i> 
+                                    @persetujuanDokumen.disetujui_flag
+                                </span>
+                            </label>
+                        </button>
+                    </h2>
+                    <div id="@accordionId" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="card p-3">
+                                <div class="d-flex flex-row align-items-center">
+                                    <i class="fa-regular fa-calendar"></i> 
+                                    <span class="ms-2">@persetujuanDokumen.tanggal_disetujui?.ToString("dd-MM-yyyy")</span>
+                                </div>
+                                <div class="d-flex flex-row mt-2 align-items-center">
+                                    <i class="fa-solid fa-pen-to-square"></i> 
+                                    <span class="ms-2">@persetujuanDokumen.keterangan_disetujui</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <label class="title-pilar d-flex ps-3 pe-3 pt-3" style="border-top: 1px solid #dee2e6; padding-top: 10px;">
+        @if (periodeDokumen.status_disetujui == "Menunggu Persetujuan" && (ViewBag.userRole == "CSR Local" || ViewBag.userRole == "CSR HO"))
+        { 
+            <span style="color: #F8183E;">
+                <i class="fa-solid fa-clock"></i> Menunggu Persetujuan
+            </span>
+        } else if ((periodeDokumen.status_disetujui == "Menunggu Persetujuan" || periodeDokumen.status_disetujui == "Sudah Dikonfirmasi") && ViewBag.userRole == "BM/SM")
+        { 
+            <div>Status BM/SM</div>
+                <i class="fa-solid fa-play mt-1 px-1"></i> 
+            <span style="color: #F8183E;">
+                <i class="fa-solid fa-clock"></i> Menunggu Persetujuan
+            </span>
+        }else if ((periodeDokumen.status_disetujui == "Menunggu Persetujuan" || periodeDokumen.status_disetujui == "Sudah Dikonfirmasi") && ViewBag.userRole == "Dept Head CSR")
+        { 
+            <div>Status Dept Head CSR</div>
+                <i class="fa-solid fa-play mt-1 px-1"></i> 
+            <span style="color: #F8183E;">
+                <i class="fa-solid fa-clock"></i> Menunggu Persetujuan
+            </span>
+        }
+        else if (periodeDokumen.status_disetujui == "BM/SM" && ViewBag.userRole == "ESRO Leader")
+        {
+            <div>Status ESRO Leader</div>
+                <i class="fa-solid fa-play mt-1 px-1"></i> 
+            <span style="color: #F8183E;">
+                <i class="fa-solid fa-clock"></i> Menunggu Persetujuan
+            </span>
+        }
+        @* else if (periodeDokumen.status_disetujui == "ESRO Leader" && ViewBag.userRole == "Dept Head CSR")
+        {
+            <div>Status Dept Head CSR</div>
+                <i class="fa-solid fa-play mt-1 px-1"></i> 
+            <span style="color: #F8183E;">
+                <i class="fa-solid fa-clock"></i> Menunggu Persetujuan
+            </span>
+        } *@
+    </label>
+
+    <form asp-action="StatusDokumen" asp-route-id="@periodeDokumen.id" enctype="multipart/form-data">
+        @if (ViewBag.userRole == "BM/SM" || ViewBag.userRole == "Dept Head CSR")
+        {
+            @if (periodeDokumen.status_disetujui == "Menunggu Persetujuan" || periodeDokumen.status_disetujui == "Sudah Dikonfirmasi") {
+                <div class="form-group mt-3 title-pilar ps-3 pe-3">
+                    <input type="hidden" id="tahun_dokumen" name="tahun_dokumen" value="@ViewBag.tahunDokumen" />
+                    <label>Ubah Status</label>
+                    <select name="disetujui_flag" id="cabang" class="form-control mt-2">
+                        <option disabled selected value="">--Pilih--</option>
+                        <option value="Disetujui">Setujui</option>
+                        <option value="Konfirmasi Ulang">Konfirmasi Ulang</option>
+                    </select>
+                    <label class="mt-2">Catatan</label>
+                    <input type="text" id="keterangan_disetujui" name="keterangan_disetujui" class="form-control mt-2" />
+                </div>
+
+                <div class="modal-footer mt-3">
+                    <button type="button" class="btn-batalkan ms-2" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg"></i> Batalkan
+                    </button>
+                    <button type="submit" class="btn-warning-custom ms-2" style="background-color: #FFCA0D;">
+                        Simpan <i class="fa-solid fa-floppy-disk"></i>
+                    </button>
+                </div>
+            }
+        } 
+        else if (periodeDokumen.status_disetujui == "BM/SM" || periodeDokumen.status_disetujui == "Dept Head CSR" && ViewBag.userRole == "ESRO Leader")
+        {
+            <div class="form-group mt-3 title-pilar ps-3 pe-3">
+                <input type="hidden" id="tahun_dokumen" name="tahun_dokumen" value="@ViewBag.tahunDokumen" />
+                <label>Ubah Status</label>
+                <select name="disetujui_flag" id="cabang" class="form-control mt-2">
+                    <option disabled selected value="">--Pilih--</option>
+                    <option value="Disetujui">Setujui</option>
+                    <option value="Konfirmasi Ulang">Konfirmasi Ulang</option>
+                </select>
+                <label class="mt-2">Catatan</label>
+                <input type="text" id="keterangan_disetujui" name="keterangan_disetujui" class="form-control mt-2" />
+            </div>
+
+            <div class="modal-footer mt-3">
+                <button type="button" class="btn-batalkan ms-2" data-bs-dismiss="modal">
+                    <i class="bi bi-x-lg"></i> Batalkan
+                </button>
+                <button type="submit" class="btn-warning-custom ms-2" style="background-color: #FFCA0D;">
+                    Simpan <i class="fa-solid fa-floppy-disk"></i>
+                </button>
+            </div>
+        } 
+        @* else if (periodeDokumen.status_disetujui == "ESRO Leader" && ViewBag.userRole == "Dept Head CSR")
+        {
+            <div class="form-group mt-2 title-pilar">
+                <input type="hidden" id="tahun_dokumen" name="tahun_dokumen" value="@ViewBag.tahunDokumen" />
+                <label>Catatan</label>
+                <input type="text" id="keterangan_disetujui" name="keterangan_disetujui" class="form-control mt-2" />
+            </div>
+
+            <div class="modal-footer mt-3">
+                <button type="button" class="btn-batalkan ms-2" data-bs-dismiss="modal">
+                    <i class="bi bi-x-lg"></i> Batalkan
+                </button>
+                <button type="submit" class="btn-warning-custom ms-2" style="background-color: #FFCA0D;">
+                    Simpan <i class="fa-solid fa-floppy-disk"></i>
+                </button>
+            </div>
+        } *@
+    </form>
+}

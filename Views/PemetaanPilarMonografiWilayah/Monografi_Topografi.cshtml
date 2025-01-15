@@ -1,0 +1,158 @@
+@model List<CREDA_App.Models.M_MonografiDesa>
+@{
+    ViewData["Title"] = "Topografi - Monografi Wilayah";
+    string currentMonografi = null;
+}
+
+<div class="row mt-3">
+    <div class="col-12">
+		<div class="card" style="border-radius: 8px;">
+			<div class="card-body card-formpemetaan flex-column mb-3">
+                <div class="row">
+                    @for(var i = 0; i < Model.Count(); i++){
+                        <input id="TXTKodeKategori" asp-for="@Model[i].kode_kategori" type="hidden" value="@Model[i].kode_kategori" />
+                        <input id="TXTKodeKategori" asp-for="@Model[i].kategori" type="hidden" value="@Model[i].kategori" />
+                        @if (Model[i].kode_monografi == "A" || Model[i].kode_monografi == "B" || Model[i].kode_monografi == "C")
+                        {
+                            @if (Model[i].kode_monografi != currentMonografi)
+                            {
+                                currentMonografi = Model[i].kode_monografi;
+                                <div class="row mt-3">		
+                                    <div class="title-pilar px-0" style="border-bottom: 4px solid #ffca0d; display: inline-block; padding-bottom: 5px; width: fit-content; margin-left: 10px;">
+                                        @Model[i].monografi
+                                    </div>
+                                </div>
+                            }
+                        }
+                        @if(@Model[i].kode_kategori == "A1"){
+                            <div class="d-flex mt-2 standar-pilar">
+                                @Model[i].kategori
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="card justify-content-center" style="width: auto; height: 40px;">
+                                    <div class="card-body card-formpemetaan px-0">
+                                        <div class="form-check px-2" style="margin-bottom: 0px; min-height: 0px;">
+                                            <input asp-for="@Model[i].DTO_isian" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioDataranTinggi" value="Dataran Tinggi">
+                                            <label class="form-check-label ms-2 ms-2" for="flexRadioDataranTinggi">
+                                                Dataran Tinggi
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card ms-3 justify-content-center" style="width: auto; height: 40px;">
+                                    <div class="card-body card-formpemetaan px-0">
+                                        <div class="form-check px-2" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                            <input asp-for="@Model[i].DTO_isian" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioDataranRendah" value="Dataran Rendah">
+                                            <label class="form-check-label ms-2" for="flexRadioDataranRendah">
+                                                Dataran Rendah
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card ms-3 justify-content-center" style="width: auto; height: 40px;">
+                                    <div class="card-body card-formpemetaan px-0">
+                                        <div class="form-check px-2" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                            <input asp-for="@Model[i].DTO_isian" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioPesisir" value="Pesisir">
+                                            <label class="form-check-label ms-2" for="flexRadioPesisir">
+                                                Pesisir
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card ms-3 justify-content-center" style="width: auto; height: 40px;">
+                                    <div class="card-body card-formpemetaan px-0">
+                                        <div class="form-check px-2" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                            <input asp-for="@Model[i].DTO_isian" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioPerbukitan" value="Perbukitan">
+                                            <label class="form-check-label ms-2" for="flexRadioPerbukitan">
+                                                Perbukitan/Pegunungan
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        } else if(@Model[i].kode_kategori == "A2"){
+                            <div class="d-flex mt-2 standar-pilar">
+                                @Model[i].kategori
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="card justify-content-center" style="width: auto; height: 40px;">
+                                    <div class="card-body card-formpemetaan px-0">
+                                        <div class="form-check px-2" style="margin-bottom: 0px; min-height: 0px;">
+                                            <input asp-for="@Model[i].DTO_isian" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioTradisional" value="Tradisional">
+                                            <label class="form-check-label ms-2" for="flexRadioTradisional">
+                                                Tradisional
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card justify-content-center ms-3" style="width: auto; height: 40px;">
+                                    <div class="card-body card-formpemetaan px-0">
+                                        <div class="form-check px-2" style="margin-bottom: 0px; min-height: 0px;">
+                                            <input asp-for="@Model[i].DTO_isian" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioSwadaya" value="Swadaya">
+                                            <label class="form-check-label ms-2" for="flexRadioSwadaya">
+                                                Swadaya
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card justify-content-center ms-3" style="width: auto; height: 40px;">
+                                    <div class="card-body card-formpemetaan px-0">
+                                        <div class="form-check px-2" style="margin-bottom: 0px; min-height: 0px;">
+                                            <input asp-for="@Model[i].DTO_isian" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioSwakarya" value="Swakarya">
+                                            <label class="form-check-label ms-2" for="flexRadioSwakarya">
+                                                Swakarya
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card justify-content-center ms-3" style="width: auto; height: 40px;">
+                                    <div class="card-body card-formpemetaan px-0">
+                                        <div class="form-check px-2" style="margin-bottom: 0px; min-height: 0px;">
+                                            <input asp-for="@Model[i].DTO_isian" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioSwasembada" value="Swasembada">
+                                            <label class="form-check-label ms-2" for="flexRadioSwasembada">
+                                                Swasembada
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        } else if(@Model[i].kode_kategori == "A3"){
+                            <div class="col-3 mt-2 flex-column">
+                                <div class="d-flex standar-pilar">
+                                    @Model[i].kategori
+                                </div>
+                                <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                    <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                        <input asp-for="@Model[i].DTO_isian" class="form-control rounded" type="text" placeholder="Input Jumlah..." style="font-size: 14px;">
+                                    </div>
+                                </div>
+                            </div>
+                        } else if(@Model[i].kode_monografi == "B"){
+                            <div class="col-3 mt-2 flex-column">
+                                <div class="d-flex standar-pilar">
+                                    @Model[i].kategori
+                                </div>
+                                <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                    <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                        <input asp-for="@Model[i].DTO_isian" class="form-control rounded" type="text" placeholder="Input Jumlah..." style="font-size: 14px;">
+                                    </div>
+                                </div>
+                            </div>
+                        }else if(@Model[i].kode_monografi == "C"){
+                            <div class="col-3 mt-2 flex-column">
+                                <div class="d-flex standar-pilar">
+                                    @Model[i].kategori
+                                </div>
+                                <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                    <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                        <input asp-for="@Model[i].DTO_isian" class="form-control rounded" type="text" placeholder="Input Jumlah..." style="font-size: 14px;">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+			</div>
+		</div>
+	</div>
+</div>

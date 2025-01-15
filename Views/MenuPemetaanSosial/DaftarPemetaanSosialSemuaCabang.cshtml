@@ -1,0 +1,83 @@
+@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Daftar Pemetaan Sosial Semua Cabang";
+}
+
+<div class="row px-3">
+<div class="row py-4 px-0">
+    <div class="title-renja">
+        Daftar Pemetaan Sosial Semua Cabang
+    </div>
+</div>
+
+<div class="card px-4" style="border-radius: 8px;">
+	<div class="title-pilar px-0 mt-3 mb-3" style="border-bottom: 4px solid #ffca0d; display: inline-block; padding-bottom: 5px; width: fit-content;">
+		Tahun Dokumen
+	</div>
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        var data = Model.ElementAt(i);	
+        <div class="col-12">
+            <div class="card mb-3" style="border-radius: 8px;">
+                <div class="card-body">
+                    <div class="d-flex flex-row justify-content-between">				
+                        <div class="d-flex align-items-center title-pilar">
+                            @data.tahun_dokumen
+                        </div>
+                        <a asp-action="DaftarSemuaCabang" asp-controller="MenuPemetaanSosial" asp-route-tahun_dokumen="@data.tahun_dokumen"
+                            class="btn p-2" type="button" style="font-weight: 400; text-decoration: none; background-color: #ffca0d;">
+                            <div class="d-flex flex-row">
+                                <div class="card d-flex justify-content-center align-items-center"
+                                    style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                    <i class="fa-solid fa-pen-to-square" style="color: #FFCA0D;"></i>
+                                </div>
+                                <div class="ms-2">
+                                    <div class="mt-2 d-flex align-items-center text-masterdata">
+                                        Lihat Detail
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+</div>
+
+<!-- Modal Status Dokumen -->
+<div class="modal fade" id="modalstatusdokumen" tabindex="-1" aria-labelledby="modalstatusdokumen" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #000000;">
+        <h5 class="modal-title" style="color: #FFCA0D; font-weight: 600;"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFCA0D; opacity: 5;"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+@* Status Dokumen *@
+<script>
+	function showModalStatusDokumen (url, title, id) {
+		console.log("Cek_" + title + " id_" + id);
+		@* return false; *@
+		$.ajax({
+			type: "GET",
+			url: '/MenuPemetaanSosial/StatusDokumen/' + '?id=' + id,
+			success: function (response) {
+				$("#modalstatusdokumen .modal-body").html(response);
+				$("#modalstatusdokumen .modal-title").html(title);
+				$("#modalstatusdokumen").modal('show');
+			},
+			error: function (error) {
+				alert('Maaf, terjadi kesalahan sistem.');
+			}
+		});
+
+	}
+</script>

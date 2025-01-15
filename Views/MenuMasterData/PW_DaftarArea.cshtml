@@ -1,0 +1,205 @@
+@model dynamic
+
+@{
+    ViewData["Title"] = "Master Data - Pemetaan Wilayah - Daftar Area";
+}
+
+<partial name="~/Views/MenuMasterData/PartialsMasterData.cshtml"/>
+
+<ul class="nav nav-pills mb-3 mt-3 gap-3 flex-row justify-content-start" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a asp-action="PW_DaftarArea" asp-controller="MenuMasterData" class="btn nav-link-custom active" aria-selected="true">Daftar Area</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a asp-action="PW_PemetaanArea" asp-controller="MenuMasterData" class="btn nav-link-custom" aria-selected="false">Pemetaan Area</a>
+    </li>
+</ul>
+<div class="row tab-content">
+    <div class="tab-pane fade show active">
+        <div class="d-flex justify-content-end align-items-center mb-2">
+            <div class="d-flex align-items-center">
+                <div class="input-group input-group-sm rounded" style="width: auto; padding-right: 5px;">
+                    <input id="searchInputDaftarArea" type="search" class="form-control rounded" placeholder="cari disini..." aria-label="Search" aria-describedby="search-addon" />
+                </div>
+                <a onclick="showModalDaftarArea('@Url.Action("PW_DaftarAreaAddOrEdit", "MenuMasterDataController", null, Context.Request.Scheme)', 'Daftar Area')"
+                    class="btn-warning-custom btn-sm ms-2" type="button">
+                    <i class="fa-solid fa-plus"></i>  Tambah Baru
+                </a>
+            </div>
+        </div>
+        <!-- Row start -->
+        <div class="row gx-3">
+            <div class="table-responsive">
+                <div class="border table-masterdata">
+                    <table id="dataTableDaftarArea" class="table align-middle table-hover m-0">
+                        <thead class="text-title-tabel">
+                            <tr>
+                                <th class="tabel-th">Kode Cabang</th>
+                                <th class="tabel-th">Detail Lokasi</th>
+                                <th class="tabel-th"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-tabel">
+                            @foreach (var data in Model.masterdata_Daftarareas)
+                            {
+                                if (data != null && data.deleted_at == null)
+                                {
+                                    <tr>
+                                        <td>@data.kode_cabang</td>
+                                        <td>@data.kode_cabang - @data.detail_lokasi</td>
+                                        <td>
+                                            <div class="dropdown">
+                                            <i id="dropdownToggle" class="fa-solid fa-ellipsis-vertical"></i>
+                                            <ul id="dropdownMenu" class="dropdown-menu" style="min-width: 5rem;">
+                                                <li><a href="#" class="ubah" onclick="showModalDaftarArea('@Url.Action("PW_DaftarAreaAddOrEdit", "MenuMasterDataController", new { id = @data.id })', 'Daftar Area', @data.id)">Ubah</a></li>
+                                                <li><a href="#" class="hapus" onclick="confirmDeleteDaftarArea(@data.id)">Hapus</a></li>
+                                            </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>						
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Row end -->
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modaldaftararea" tabindex="-1" aria-labelledby="modaldaftararea" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #000000;">
+        <h5 class="modal-title" style="color: #FFCA0D; font-weight: 600;"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFCA0D; opacity: 5;"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	function showModalDaftarArea (url, title, id) {
+		$.ajax({
+			type: "GET",
+			url: '/MenuMasterData/PW_DaftarAreaAddOrEdit/' + id,
+			success: function (response) {
+				$("#modaldaftararea .modal-body").html(response);
+				$("#modaldaftararea .modal-title").html(title);
+				$("#modaldaftararea").modal('show');
+			},
+			error: function (error) {
+				alert('Maaf, terjadi kesalahan sistem.');
+			}
+		});
+
+	}
+
+
+@* Penanganan input pencarian di tab daftararea *@
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInputDaftarArea');
+        const dataTable = document.getElementById('dataTableDaftarArea');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const rows = dataTable.querySelectorAll('tbody tr');
+
+            rows.forEach(row => {
+                const columns = row.querySelectorAll('td');
+                let found = false;
+
+                columns.forEach(column => {
+                    if (column.textContent.toLowerCase().includes(searchTerm)) {
+                        found = true;
+                    }
+                });
+
+                if (found) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    });
+
+	function toggleDropdownMenu(event) {
+	 	event.stopPropagation();
+		var dropdownMenu = event.target.nextElementSibling;
+
+		var allDropdownMenus = document.querySelectorAll('.dropdown-menu');
+		allDropdownMenus.forEach(function(menu) {
+			if (menu !== dropdownMenu) {
+            	menu.style.display = 'none';
+        	}
+		});
+
+		if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
+			dropdownMenu.style.display = "block";
+		} else {
+			dropdownMenu.style.display = "none";
+		}
+    }
+
+	document.addEventListener('DOMContentLoaded', function() {
+		const dropdownIcons = document.querySelectorAll('.fa-solid.fa-ellipsis-vertical');
+		dropdownIcons.forEach(function(icon) {
+			icon.addEventListener('click', toggleDropdownMenu);
+		});
+	});
+
+	// Menutup dropdown saat mengklik di luar dropdown
+	window.addEventListener('click', function(event) {
+		const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+		dropdownMenus.forEach(function(menu) {
+			if (!menu.contains(event.target)) {
+				menu.style.display = 'none';
+			}
+		});
+	});
+
+	// Menutup dropdown saat mengklik di luar dropdown
+	window.onclick = function(event) {
+		if (!event.target.matches('.fa-solid')) {
+			var dropdowns = document.getElementsByClassName("dropdown-menu");
+			for (var i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	}
+
+</script>
+
+<script>
+    function confirmDeleteDaftarArea(id) {
+        if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+            $.ajax({
+                url: '@Url.Action("MasterDataDaftarAreaDelete", "MenuMasterData")',
+                type: 'POST',
+                data: { id: id },
+                success: function(result) {
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    alert("Terjadi kesalahan: " + error);
+                }
+            });
+        }
+    }
+</script>
+
+<script>
+    var errorMessage = "@TempData["ErrorMessage"]";
+    if (errorMessage) {
+        alert(errorMessage);
+    }
+</script>
+

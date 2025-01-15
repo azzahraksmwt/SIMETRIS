@@ -1,0 +1,179 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+
+@{
+    var dataProfil = Accessor.HttpContext?.Session.GetString("Foto");
+    var imageSource = !string.IsNullOrEmpty(dataProfil) && dataProfil != "user-avatar.jpg" 
+        ? Url.Content($"~/FotoProfil/{dataProfil}") 
+        : Url.Content("~/img/user-avatar.jpg");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Landing Page</title>
+    <link rel="stylesheet" href="~/css/custom_css.css" />
+    <link rel="stylesheet" href="~/css/virtual-select.min.css" type="text/css">
+    <link href="~/lib/bootstrap-5.0.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" type="text/javascript"></script>
+    @* <script src="https://bernii.github.io/gauge.js/dist/gauge.min.js"></script> *@
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<body id="body-pd">
+    <!-- Header Section -->
+    <header class="header justify-content-end" id="header">
+        @* <div class="header_toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+        </div> *@
+        <div class="d-flex">
+            @* <i class="fa-solid fa-bell fa-xl" style="color: #ffca0d; padding: 20px; margin-right: 5px;"></i> *@
+            <div class="header_img" style="margin-top: 3px;">
+                <img src="@imageSource" alt="Foto Profil">
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Section -->
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav_logo">
+                    <img src="~/img/logo-dummy.png" style="width: 35px; height: 35px; margin-top: 15px;"></img>
+                    @* <span class="nav_logo-name">CREDA App</span><br>
+                    <span class="nav_logo-name" style="margin-top: -25px;">by <span style="color: #FFCA0D;">UnitedTractors</span></span><br> *@
+                </a>
+                <!-- Navigation Links -->
+                <div class="nav_list ms-2 me-2 mt-4">
+                    <a asp-action="Beranda" asp-controller="Home" class="nav_link @((ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && 
+                    ViewContext.RouteData.Values["action"]?.ToString() == "Beranda") ? "active" : "")"
+                    data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Beranda">
+                        <i class="fa-solid fa-house">
+                            @* <span class="nav_name">Beranda</span> *@
+                        </i>
+                    </a>
+                    <a asp-action="DaftarPemetaanSosial" asp-controller="MenuPemetaanSosial" class="nav_link 
+                    @((ViewContext.RouteData.Values["controller"]?.ToString() == "MenuPemetaanSosial") ||
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "PemetaanPilarMonografiWilayah") ||
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "PemetaanPilarPendidikan") ||
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "PemetaanPilarEkonomi") ||
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "PemetaanPilarKesehatan") ||
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "PemetaanPilarLingkungan") ||
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "PemetaanPilarTanggapDarurat") ? "active" : "")"
+                    data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Daftar Pemetaan Sosial">
+                        <i class="fa-solid fa-file-lines">
+                            @* <span class="nav_name">Beranda</span> *@
+                        </i>
+                    </a>
+                    @* <a class="nav_link d-flex @((ViewContext.RouteData.Values["controller"]?.ToString() == "PemetaanPilarMonografiWilayah") || 
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "PemetaanPilarTanggapDarurat") ||
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "DetailPilarTanggapDarurat") ||
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "RencanaKerja") ||
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "RencanaKerjaPendidikan") ||
+                    (ViewContext.RouteData.Values["controller"]?.ToString() == "RencanaKerjaKesehatan") ? "active" : "")" 
+                    data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa-solid fa-file-lines">
+                            <span class="nav_name">CSR</span>
+                            <i class="fa-solid fa-caret-down" style="margin-left: 100px;"></i>
+                        </i>
+                    </a> *@
+                    <div class="collapse" id="collapseExample" style="padding-left: 2.5rem; margin-top: -1.5rem">
+                        <ul class="list-group">
+                            <li style="list-style-type: none;">
+                                @if (User.HasClaim(x => x.Value == "Admin")){
+                                    <a asp-action="Dashboard" asp-controller="PemetaanPilarMonografiWilayah" class="menu">Pemetaan Pilar</a>
+                                } else {
+                                    <a asp-action="SkorPemetaanPilar" asp-controller="PemetaanPilarMonografiWilayah" class="menu">Pemetaan Pilar</a>
+                                }
+                            </li>
+                            <li style="list-style-type: none;">
+                                <a asp-action="RencanaKerjaTahunan" asp-controller="RencanaKerja" class="menu">Renja Tahunan</a>
+                            </li>
+                            <li style="list-style-type: none;">
+                                <a asp-action="Implementasi" asp-controller="CSR" class="menu">Implementasi</a>
+                            </li>
+                        </ul>
+                    </div>
+                    @* <a href="#" class="nav_link mt-3" >
+                        <i class="fa-solid fa-circle-dollar-to-slot">
+                            <span class="nav_name">Transfer Anggaran</span>
+                        </i>
+                    </a> *@
+                    @* <a href="#" class="nav_link">
+                        <i class="fa-solid fa-circle-info">
+                            <span class="nav_name">Menu Lainnya</span>
+                        </i>
+                    </a> *@
+                    @* @if (User.HasClaim(x => x.Value == "CSR Local" || x.Value == "CSR HO" || x.Value == "BM/SM")){ *@
+                        <a asp-action="Profil" asp-controller="Home" class="nav_link @((ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && 
+                        ViewContext.RouteData.Values["action"]?.ToString() == "Profil") ? "active" : "")"
+                        data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Profil">
+                            <i class="fa-solid fa-user">
+                                @* <span class="nav_name">Profil</span> *@
+                            </i>
+                        </a>
+                    @* } else {
+                        <a asp-action="DaftarPemetaanSosialSemuaCabang" asp-controller="MenuPemetaanSosial" class="nav_link">
+                            <i class="fa-solid fa-user">
+                                <span class="nav_name">Profil</span>
+                            </i>
+                        </a>
+                    } *@
+                    @if (User.HasClaim(x => x.Value == "Admin")){
+                    <a asp-action="BatasWaktuPengisian" asp-controller="MenuMasterData" class="nav_link @((ViewContext.RouteData.Values["controller"]?.ToString() == "MenuMasterData" && 
+                    ViewContext.RouteData.Values["action"]?.ToString() == "BatasWaktuPengisian") ? "active" : "")"
+                    data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Master Data">
+                        <i class="fa-solid fa-database">
+                            @* <span class="nav_name">Master Data</span> *@
+                        </i>
+                    </a>
+                    @* <a asp-action="UserManagement" asp-controller="MenuUserManagement" class="nav_link @((ViewContext.RouteData.Values["controller"]?.ToString() == "MenuUserManagement" && 
+                    ViewContext.RouteData.Values["action"]?.ToString() == "UserManagement") ? "active" : "")"
+                    data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="User Management">
+                        <i class="fa-solid fa-users">
+                            <span class="nav_name">User Management</span>
+                        </i>
+                    </a> *@
+                    }
+                    <a asp-action="Logout" asp-controller="Home" class="nav_link @((ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && 
+                    ViewContext.RouteData.Values["action"]?.ToString() == "Logout") ? "active" : "")"
+                    data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Logout">
+                        <i class="fa-solid fa-circle-arrow-left">
+                            @* <span class="nav_name">Logout</span> *@
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+        <main role="main" class="pt-3 mt-5">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/js/custom_js.js"></script>
+    <script src="~/js/virtual-select.min.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/86a240fcf1.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+</body>
+</html>
+
+<script>
+    $(document).ready(function() {
+        $('[data-bs-toggle="tooltip"]').tooltip();
+    });
+</script>

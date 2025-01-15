@@ -1,0 +1,318 @@
+@{
+    ViewData["Title"] = "Detail Rencana Kerja";
+}
+
+<nav aria-label="breadcrumb m" class="mt-4" style="font-size: 14px;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-action="Beranda" asp-controller="Home">
+            <i class="fa-solid fa-house" style="color: #FFCA0D;"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item"><a asp-action="RenjaPendidikan" asp-controller="RencanaKerjaPendidikan" style="color: #6C757D; text-decoration: none;"> Detail Rencana Kerja Tahunan</a></li>
+    <li class="breadcrumb-item active" aria-current="page" style="color: #000;">Program Kerja</li>
+  </ol>
+</nav>
+
+<div class="py-3">
+    <div class="title-renja">
+        Detail Rencana Kerja
+    </div>
+
+    <div class="col-12 mt-2">
+		<div class="card mb-3" style="border-radius: 8px;">
+			<div class="card-body card-formpemetaanpilar" style="height: auto;">
+				<div class="row">
+					<div class="col-8" style="width: 75%;">
+						<div class="d-flex flex-row">
+							<div class="card d-flex justify-content-center align-items-center" style="background-color: #FFFAE7; border-color: transparent; width: 32px; height: 32px;">
+								<img src="~/img/icon-programkerja.png" class="img-fluid p-1">
+							</div>
+							<div class="ms-2 w-100">
+								<div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja">
+									Pendidikan - SOBAT
+								</div>
+								<div class="mt-0">Lorem Ipsum dolor sit amet consectetur Risus dui Augue 2024 Lorem Ipsum dolor sit amet consectetur Risus dui Augue 2024 Lorem Ipsum dolor sit amet consectetur Risus dui Augue 2024</div>
+                                <div class="mt-1">42 Sekolah</div>
+							</div>
+						</div>
+                        <div class="d-flex flex-row mt-2">
+                            <div class="card d-flex justify-content-center align-items-center" style="background-color: #FFFAE7; border-color: transparent; width: 32px; height: 32px;">
+								<img src="~/img/icon-uang.png" class="img-fluid p-1">
+							</div>
+							<div class="ms-2 w-100">
+								<div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja">
+									30.000.000 IDR
+								</div>
+							</div>
+                        </div>
+					</div>
+                    <div class="col-3" style="width: 21%;">
+                        <div class="text-end" style="font-weight: 600;">
+                            2024 - Head Office
+                        </div>
+                        <div class="text-end" style="margin-top: 100px; font-weight: 600; color: #FFCA0D;">
+                            Konfirmasi Ulang
+                        </div>
+                    </div>
+                    <div class="col-1" style="width: 4%;">
+                        <i id="dropdownToggle" class="fa-solid fa-ellipsis-vertical" onclick="toggleDropdownMenu()"></i>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="card-body" style="padding: 0;">
+	<div class="custom-tabs-container">
+		<ul class="nav nav-pills mb-3 gap-3 flex-row justify-content-center" id="pills-tab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<a class="btn nav-link-custom active" id="tab-detailinformasi" data-bs-toggle="tab" href="#detailinformasi" role="tab"
+					aria-controls="detailinformasi" aria-selected="false">Detail Informasi</a>
+			</li>
+			<li class="nav-item" role="presentation">
+				<a class="btn nav-link-custom" id="tab-ruanglingkup" data-bs-toggle="tab" href="#ruanglingkup" role="tab"
+					aria-controls="ruanglingkup" aria-selected="false">Ruang Lingkup</a>
+			</li>
+            <li class="nav-item" role="presentation">
+				<a class="btn nav-link-custom" id="tab-linimasakegiatan" data-bs-toggle="tab" href="#linimasakegiatan" role="tab"
+					aria-controls="linimasakegiatan" aria-selected="false">Linimasa Kegiatan</a>
+			</li>
+		</ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="detailinformasi" role="tabpanel">
+                <div class="col-12 mt-2">
+                    <div class="card mb-3" style="border-radius: 8px;">
+                        <div class="card-body card-formpemetaanpilar" style="height: auto;">
+                            <div class="row">
+                                <div class="col-11" style="width: 95%;">
+                                    <div class="d-flex flex-row">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 18px; line-height: 27px; width: auto;">
+                                                Informasi Program Kerja
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Deskripsi Proker :
+                                            </div>
+                                            <div class="mt-0">Lorem ipsum dolor sit amet consectetur. Lorem commodo sodales in et rhoncus orci. Et nisi posuere viverra eget morbi tempus ultricies nisi vitae.</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                PIC Program Kerja :
+                                            </div>
+                                            <div class="mt-0">12345678 - Nama PIC Proker</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Unit Kerja :
+                                            </div>
+                                            <div class="mt-0">UT HO, UT Cabang, UT Site</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Tujuan :
+                                            </div>
+                                            <div class="mt-0">Lorem ipsum dolor sit amet consectetur. Lorem commodo sodales in et rhoncus orci. Et nisi posuere viverra eget morbi tempus ultricies nisi vitae.</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Sasaran :
+                                            </div>
+                                            <div class="mt-0">Lorem ipsum dolor sit amet consectetur. Lorem commodo sodales in et rhoncus orci. Et nisi posuere viverra eget morbi tempus ultricies nisi vitae.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1" style="width: 5%;">
+                                    <i id="dropdownToggle" class="fa-solid fa-ellipsis-vertical" onclick="toggleDropdownMenu()"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="tab-pane fade" id="ruanglingkup" role="tabpanel">
+                <div class="col-12 mt-2">
+                    <div class="card mb-3" style="border-radius: 8px;">
+                        <div class="card-body card-formpemetaanpilar" style="height: auto;">
+                            <div class="row">
+                                <div class="col-11" style="width: 95%;">
+                                    <div class="d-flex flex-row">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 18px; line-height: 27px; width: auto;">
+                                                Ruang Lingkup Proker
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Metode Pelaksanaan :
+                                            </div>
+                                            <div class="mt-0">Lorem ipsum dolor sit amet consectetur.</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Kolaborasi Internal :
+                                            </div>
+                                            <div class="mt-0">Lorem ipsum dolor sit amet consectetur. </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Kolaborasi Eksternal :
+                                            </div>
+                                            <div class="mt-0">Lorem ipsum dolor sit amet consectetur. </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Target Produk :
+                                            </div>
+                                            <div class="mt-0">Lorem ipsum dolor sit amet consectetur. Lorem commodo sodales in et rhoncus orci. Et nisi posuere viverra eget morbi tempus ultricies nisi vitae.</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Indikator KPI :
+                                            </div>
+                                            <div class="mt-0">
+                                                <ul>
+                                                    <li>Nama_Isian_KPI - 150 Orang<br>
+                                                        Jumlah siswa SMK yang mengikuti lomba/ olimpiade, festival, debat, dan unjuk prestasi tingkat nasional dan internasional (9261)
+                                                    </li>
+                                                    <li>Nama_Isian_KPI - 42 Sekolah<br>
+                                                        Jumlah Sekolah SMA Yang mengikuti lomba, festival, dan olimpiade (5683)
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Besaran Target Pendukung :
+                                            </div>
+                                            <div class="mt-0">7500 - (1,33% dari target pendukung)</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                SGDs :
+                                            </div>
+                                            <div class="mt-0">TUJUAN 4. Memastikan pendidikan yang inklusif dan berkualitas setara, juga mendukung kesempatan belajar seumur hidup bagi semua</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Referensi SDSI :
+                                            </div>
+                                            <div class="mt-0">-</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Referensi SDSI :
+                                            </div>
+                                            <div class="mt-0">-</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Referensi Peraturan :
+                                            </div>
+                                            <div class="mt-0">
+                                                <ul>
+                                                    <li>UU no 123</li>
+                                                    <li>SK/UT/No. 123</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1" style="width: 5%;">
+                                    <i id="dropdownToggle" class="fa-solid fa-ellipsis-vertical" onclick="toggleDropdownMenu()"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="tab-pane fade" id="linimasakegiatan" role="tabpanel">
+                <div class="col-12 mt-2">
+                    <div class="card mb-3" style="border-radius: 8px;">
+                        <div class="card-body card-formpemetaanpilar" style="height: auto;">
+                            <div class="row">
+                                <div class="col-11" style="width: 95%;">
+                                    <div class="d-flex flex-row">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 18px; line-height: 27px; width: auto;">
+                                                Rencana Linimasa Kegiatan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Tahap Perencanaan :
+                                            </div>
+                                            <div class="mt-0">01/10/2023 - 25/11/2023</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Tahap Aktualisasi :
+                                            </div>
+                                            <div class="mt-0">01/01/2024 - 01/08/2024</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Tahap Pemeriksaan :
+                                            </div>
+                                            <div class="mt-0">01/01/2024 - 01/08/2024</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="w-100">
+                                            <div class="mb-2 mt-1 lh-1 d-flex align-items-center title-detail-renja" style="font-size: 14px; line-height: 21px;">
+                                                Tahap Review :
+                                            </div>
+                                            <div class="mt-0">01/01/2024 - 01/08/2024</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1" style="width: 5%;">
+                                    <i id="dropdownToggle" class="fa-solid fa-ellipsis-vertical" onclick="toggleDropdownMenu()"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+        </div>
+	</div>
+</div>

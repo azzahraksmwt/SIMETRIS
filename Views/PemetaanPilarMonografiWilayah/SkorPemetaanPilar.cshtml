@@ -1,0 +1,163 @@
+@* @ctr_allPilar List<CREDA_App.ctr_allPilars.VW_SC_AllDashboardPilar> *@
+@{
+    var vw_sc_allDashboardPilar = (List<VW_SC_AllDashboardPilar>)ViewBag.vw_sc_allDashboardPilar;
+    var vw_sc_allDashboardPilarTotal = (List<VW_SC_AllDashboardPilarTotal>)ViewBag.vw_sc_allDashboardPilarTotal;
+	var ctr_allPilar = (List<VW_CTR_AllPilar>)ViewBag.vw_ctr_allPilar;
+	var ctr_monografiDesa = (List<CTR_MonografiDesa>)ViewBag.ctr_monografiDesa;
+	var m_cabang = (List<M_Cabang>)ViewBag.m_cabang;
+
+	ViewData["Title"] = "Pemetaan Pilar";
+}
+
+<div class="row">
+	<div class="py-4" style="font-size: 24px; font-weight: 600">
+		Skor Pemetaan Pilar
+	</div>
+	
+	@foreach (var item in vw_sc_allDashboardPilar)
+	{
+		<div class="col-xl-3 col-sm-6 col-12">
+			<div class="mb-4 card-pemetaanpilar">
+				<div class="card-body">
+					<div class="d-flex flex-row">
+						@{
+							string imagePath = "";
+							string backgroundColor = "";
+							string fontColor = "";
+
+							switch (item.pilar)
+							{
+								case "Pendidikan":
+									imagePath = "~/img/icon-pendidikan.png";
+									backgroundColor = "#E7F0FF";
+									fontColor = "#0D6EFD";
+									break;
+								case "Kesehatan":
+									imagePath = "~/img/icon-kesehatan.png";
+									backgroundColor = "#FBEBF3";
+									fontColor = "#D63384";
+									break;
+								case "Ekonomi":
+									imagePath = "~/img/icon-ekonomi.png";
+									backgroundColor = "#E7FAFD";
+									fontColor = "#0DCAF0";
+									break;
+								case "Lingkungan":
+									imagePath = "~/img/icon-lingkungan.png";
+									backgroundColor = "#E7FAF0";
+									fontColor = "#13CE66";
+									break;
+								case "Tanggap Darurat":
+									imagePath = "~/img/icon-tanggapdarurat.png";
+									backgroundColor = "#FEE8EC";
+									fontColor = "#F8183E";
+									break;
+								default:
+									imagePath = "~/img/default-icon.png";
+									backgroundColor = "#FFFFFF";
+									break;
+							}
+						}
+						
+						<div class="card d-flex justify-content-center align-items-center" style="background-color: @backgroundColor; border-color: transparent; width: 32px; height: 32px;">
+							<img src="@Url.Content(imagePath)" class="img-fluid p-1" alt="Icon">
+						</div>
+						
+						<div class="ms-2">
+							<div class="mb-2 mt-2 lh-1 d-flex align-items-center title-pilar">
+								@item.pilar
+							</div>
+							<div class="mb-2 angka-pilar" style="color: @fontColor;">@item.jumlah</div>
+							<div class="m-0 standar-pilar">@item.prioritas</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+
+	@foreach(var item in vw_sc_allDashboardPilarTotal)
+    {
+	<div class="col-xl-3 col-sm-6 col-12">
+		<div class="mb-4 card-pemetaanpilar">
+			<div class="card-body">
+				<div class="d-flex flex-row">
+					<div class="card d-flex justify-content-center align-items-center" style="background-color: #FFFAE7; border-color: transparent; width: 32px; height: 32px;">
+						<img src="~/img/icon-skor.png" class="img-fluid p-1">
+					</div>
+					<div class="ms-2">
+						<div class="mb-2 mt-2 lh-1 d-flex align-items-center title-pilar">
+							Total Skor
+						</div>
+						<div class="mb-2 angka-pilar" style="color: #FFCA0D;">@item.jumlah</div>
+						<div class="m-0 standar-pilar">@item.prioritas</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	}
+	@foreach(var item in m_cabang)
+    {
+	<div class="col-xl-3 col-sm-6 col-12">
+		<div class="mb-4 card-pemetaanpilar" style="height: 85%;">
+			<div class="card-body">
+				<div class="d-flex flex-row">
+					<div class="card d-flex justify-content-center align-items-center" style="background-color: #FFFAE7; border-color: transparent; width: 32px; height: 32px;">
+						<img src="~/img/icon-area.png" class="img-fluid p-1">
+					</div>
+					<div class="ms-2">
+						<div class="mb-2 mt-2 lh-1 d-flex align-items-center title-pilar">
+							Nama Area
+						</div>
+						<div class="mt-0 standar-pilar">@item.kode_cabang - @item.nama_cabang</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	}
+</div>
+
+<!-- Row start -->
+<div class="row">
+	<div class="py-3" style="font-size: 18px; font-weight: 600">
+		Form Pemetaan Pilar
+	</div>
+
+		<div class="col-12">
+			<div class="card mb-3" style="border-radius: 8px;">
+				<div class="card-body">
+					<div class="d-flex flex-row justify-content-between">
+						@for(var i = 0; i < ctr_monografiDesa.Count(); i++)
+    					{					
+						<div class="d-flex align-items-center title-pilar">
+							Monografi Wilayah (@ctr_monografiDesa[i].total_isian/@ctr_monografiDesa[i].total_kategori)
+						</div>
+						<a asp-action="MonografiWilayah" asp-controller="PemetaanPilarMonografiWilayah" asp-route-kode_cabang="@ViewBag.Kode_Cabang">
+							<img src="~/img/icon-edit.png" alt="Bootstrap Gallery" />
+						</a>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+		@for(var i = 0; i < ctr_allPilar.Count(); i++)
+    	{	
+		<div class="col-12">
+			<div class="card mb-3" style="border-radius: 8px;">
+				<div class="card-body">
+					<div class="d-flex flex-row justify-content-between">				
+						<div class="d-flex align-items-center title-pilar">
+							@ctr_allPilar[i].pilar (@ctr_allPilar[i].total_isian/@ctr_allPilar[i].total_kriteria)
+						</div>
+						<a asp-action="Pilar@(ctr_allPilar[i].pilar.Replace(" ", ""))" asp-controller="PemetaanPilar@(ctr_allPilar[i].pilar.Replace(" ", ""))">
+							<img src="~/img/icon-edit.png" alt="Bootstrap Gallery" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		}
+</div>
+<!-- Row end -->

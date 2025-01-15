@@ -1,0 +1,53 @@
+@{
+    var currentAction = ViewContext.RouteData.Values["action"] as string;
+    var currentController = ViewContext.RouteData.Values["controller"] as string;
+}
+
+<div class="py-3" style="font-size: 24px; font-weight: 600">
+    Master Data
+</div>
+
+<div class="row">
+    <div class="col-xl-2 col-sm-6 col-12">
+        <div class="card mb-4 card-masterdata @(currentAction == "BatasWaktuPengisian" && currentController == "MenuMasterData" ? "active" : "") text-center">
+            <a asp-action="BatasWaktuPengisian" asp-controller="MenuMasterData" style="text-decoration: none;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <div class="icon-box rounded-3 mb-2">
+                        <img src="~/img/submenumasterdata2.png"/>
+                    </div>
+                    <div class="text-masterdata">
+                        Batas Waktu Pengisian
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+	<div class="col-xl-2 col-sm-6 col-12">
+        <div class="card mb-4 card-masterdata @(currentAction == "DaftarCabang" && currentController == "MenuMasterData" ? "active" : "") text-center">
+            <a asp-action="DaftarCabang" asp-controller="MenuMasterData" style="text-decoration: none;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <div class="icon-box rounded-3 mb-2">
+                        <img src="~/img/submenumasterdata1.png">
+                    </div>
+                    <div class="text-masterdata">
+                        Daftar Cabang
+                    </div>
+                </div>
+            </a>
+        </div>
+	</div>
+    <div class="col-xl-2 col-sm-6 col-12">
+        <div class="card mb-4 card-masterdata @(currentAction == "UserManagement" && currentController == "MenuMasterData" ? "active" : "") text-center">
+            <a asp-action="UserManagement" asp-controller="MenuMasterData" style="text-decoration: none;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <div class="icon-box rounded-3 mb-2">
+                        <img src="~/img/submenumasterdata1.png"/>
+                    </div>
+                    <div class="text-masterdata">
+                        Manajemen Pengguna
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+@model CREDA_App.Models.TR_PeriodeDokumen
+@{
+    Layout = null;
+}
+
+<form asp-action="VerifikasiDokumen" enctype="multipart/form-data" asp-route-tahun_dokumen = "@ViewBag.tahunDokumen">
+    <div class="form-group title-pilar">
+        <label>Tahun Dokumen</label>
+        <input type="text" asp-for="tahun_dokumen" class="form-control mt-2" value="@ViewBag.tahunDokumen" disabled>
+    </div>
+    <div class="form-group margin-top-md title-pilar mt-3">
+        <div class="d-flex flex-row align-items-center">
+            <input class="form-check-input mt-0 me-2" type="checkbox" asp-for ="status_verifikasi" value="Dokumen Telah Diverifikasi" aria-label="Checkbox for following text input"> 
+            <label>Verifikasi Dokumen</label>
+        </div>
+    </div>
+
+    <div class="modal-footer mt-3">
+        <button type="button" class="btn-batalkan ms-2" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Batalkan </button>
+        <button type="submit" class="btn-warning-custom ms-2" style="background-color: #FFCA0D;">Simpan <i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+</form>

@@ -1,0 +1,157 @@
+@{
+    ViewData["Title"] = "Social Mapping";
+    var currentYear = DateTime.Now.Year;
+    var oneYearsAgo = DateTime.Now.AddYears(-1).Year;
+    var nextYears = DateTime.Now.AddYears(1).Year;
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+
+	int[] tahunListYear = { 2022, 2023, 2024, 2025 };
+
+	var year = ViewBag.SelectedYear;
+
+	var approvalFlag = ViewBag.approvalFLag;
+
+	var ctrAllPilar = ViewBag.ctrDataAllPilar as IEnumerable<dynamic>;
+
+    var tahunList = ViewBag.TahunList as List<int?>;
+    var tahun_dokumen = ViewBag.SelectedYear as int?; 
+
+	var formActionUrl = currentAction == "MonografiWilayah" 
+        ? Url.Action("MonografiWilayah", "PemetaanPilarMonografiWilayah") 
+        : Url.Action(currentAction, "Pemetaan" + currentAction);
+
+	string AddSpaceBeforeCapital(string text)
+    {
+        return System.Text.RegularExpressions.Regex.Replace(text, "(?<!^)([A-Z])", " $1");
+    }
+}
+
+<div class="d-flex flex-row justify-content-between">
+	<nav aria-label="breadcrumb m" class="mt-4" style="font-size: 14px;">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a asp-action="Beranda" asp-controller="Home">
+				<i class="fa-solid fa-house" style="color: #FFCA0D;"></i>
+			</a>
+		</li>
+		@if (User.HasClaim(x => x.Value == "CSR Local" || x.Value == "CSR HO" || x.Value == "BM/SM")){
+			<li class="breadcrumb-item"><a asp-action="DaftarPemetaanSosial" asp-controller="MenuPemetaanSosial" style="color: #6C757D; text-decoration: none;">Daftar Pemetaan Sosial</a></li>
+		} else {
+			<li class="breadcrumb-item"><a asp-action="DaftarSemuaCabang" asp-controller="MenuPemetaanSosial" asp-route-tahun_dokumen="@ViewBag.SelectedYear" style="color: #6C757D; text-decoration: none;">Daftar Cabang</a></li>
+		}
+		<li class="breadcrumb-item active" aria-current="page" style="color: #000;">@ViewBag.SelectedYear</li>
+	</ol>
+	</nav>
+	@* @if (User.HasClaim(x => x.Value == "ESRO_LEADER")){
+		@if(@approvalFlag == false){
+			<a onclick="showModalPemetaanSosial('@Url.Action("UbahStatus", "MenuMasterDataController", null, Context.Request.Scheme)', 'Ubah Status', @year)"
+				class="btn-warning-custom btn-sm ms-auto me-2 p-2" type="button" style="font-weight: 400;">
+				<i class="fa-solid fa-pen-to-square"></i>  Ubah Status
+			</a>
+		}
+	} *@
+    @* <form method="get" action="@formActionUrl">
+		<div class="dropdown">
+			@Html.DropDownList("tahun_dokumen", new SelectList(tahunListYear, tahun_dokumen), "--Pilih Tahun--", 
+				new { @class = "form-select", onchange = "this.form.submit()" })
+		</div>
+	</form>  *@
+</div>
+
+<div id="CanEditable" class="card-body" style="padding: 0;">
+	<div class="custom-tabs-container">
+		<ul class="nav nav-pills gap-3 flex-row justify-content-start" id="pills-tab" role="tablist">
+			@foreach (var item in ctrAllPilar)
+			{
+				var pilarName = item.Pilar;
+				var actionName = pilarName == "MonografiWilayah" ? pilarName : "Pilar" + pilarName;
+				var controllerName = "PemetaanPilar" + pilarName;
+				var iconFileName = "icon-" + pilarName.Replace(" ", "").ToLower() + ".svg";
+				var iconPath = Url.Content("~/img/" + iconFileName);
+
+				<li class="nav-item" role="presentation">
+					<div class="card mb-4 card-masterdata @(currentAction == actionName.Replace(" ", "") ? "active" : "") text-center">
+						<a asp-action="@actionName.Replace(" ", "")" asp-controller="@controllerName.Replace(" ", "")" 
+						asp-route-tahun_dokumen="@ViewBag.SelectedYear" asp-route-kode_cabang="@ViewBag.Kode_Cabang" class="btn nav-link-custom" aria-selected="false">
+							<div class="d-flex flex-row">
+								<div class="card d-flex justify-content-center align-items-center"
+									style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+									@if (pilarName == "MonografiWilayah")
+									{
+										<i class="fa-solid fa-globe" style="color: #FFCA0D;"></i>
+									}
+									else
+									{
+										<img src="@iconPath" class="img-fluid p-1" alt="Icon">
+									}
+								</div>
+								<div class="ms-2">
+									<div class="mt-2 d-flex align-items-center text-masterdata @(currentAction == actionName ? "active" : "")">
+										@AddSpaceBeforeCapital(pilarName) (@item.TotalIsian/@item.TotalKriteria)
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</li>
+			}
+		</ul>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalpemetaansosial" tabindex="-1" aria-labelledby="modalpemetaansosial" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #000000;">
+        <h5 class="modal-title" style="color: #FFCA0D; font-weight: 600;"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFCA0D; opacity: 5;"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	function showModalPemetaanSosial (url, title, id) {
+		console.log("Cek_"+title+"id_"+id)
+		@* return false; *@
+		$.ajax({
+			type: "GET",
+			url: '/Partials/UbahStatus/' + id,
+			success: function (response) {
+				$("#modalpemetaansosial .modal-body").html(response);
+				$("#modalpemetaansosial .modal-title").html(title);
+				$("#modalpemetaansosial").modal('show');
+			},
+			error: function (error) {
+				alert('Maaf, terjadi kesalahan sistem.');
+			}
+		});
+
+	}
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const canEdit = @Json.Serialize(ViewBag.CanEdit);
+        const message = "@ViewBag.EditMessage";
+
+        if (!canEdit) {
+            disableForm(message);
+        }
+    });
+
+    function disableForm(message) {
+        const inputs = document.querySelectorAll("#CanEditable input, #CanEditable select, #CanEditable button");
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
+
+        const alertContainer = document.createElement("div");
+        alertContainer.className = "alert alert-danger mt-3";
+        alertContainer.textContent = message || "Dokumen ini tidak berada dalam periode pengisian yang aktif.";
+        document.querySelector("#CanEditable").prepend(alertContainer);
+    }
+</script>

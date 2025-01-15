@@ -1,0 +1,37 @@
+@model CREDA_App.Models.User_Management
+@{
+    Layout = null;
+}
+
+<form asp-action="UbahProfil" asp-route-id="@Model.id" enctype="multipart/form-data">
+    <div class="form-group title-pilar">
+        <label>ID Karyawan</label>
+        <input type="text" asp-for="id_karyawan" class="form-control mt-2" value="@Model.id_karyawan" disabled>
+    </div>
+    <div class="form-group title-pilar mt-3">
+        <label>Nama Karyawan</label>
+        <input type="text" asp-for="nama_karyawan" class="form-control mt-2" value="@Model.nama_karyawan">
+    </div>
+    <div class="form-group title-pilar mt-3">
+        <label>Email</label>
+        <input type="text" asp-for="email" class="form-control mt-2" value="@Model.email">
+    </div>
+    <div class="form-group title-pilar mt-3">
+        <label>Role</label>
+        <input type="text" asp-for="role" class="form-control mt-2" value="@Model.role" disabled>
+    </div>
+    <div class="form-group title-pilar mt-3">
+        <label>Cabang</label>
+        <input type="text" asp-for="kode_cabang" class="form-control mt-2" value="@Model.kode_cabang - @ViewBag.Cabang.nama_cabang" disabled>
+    </div>
+
+    <div class="form-group title-pilar mt-3 d-flex flex-column">
+        <label>Foto Profil</label>
+        <input type="file" id="file" name="file" class="mt-2">
+    </div>
+
+    <div class="modal-footer mt-3">
+        <button type="button" class="btn-batalkan ms-2" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Batalkan </button>
+        <button type="submit" class="btn-warning-custom ms-2" style="background-color: #FFCA0D;">Simpan <i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+</form>

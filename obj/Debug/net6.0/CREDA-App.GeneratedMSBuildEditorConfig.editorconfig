@@ -1,0 +1,255 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CREDA_App
+build_property.RootNamespace = CREDA_App
+build_property.ProjectDir = d:\Perkuliahan\prakerin\dotnet\belajar-dotnet\CREDA-App\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = d:\Perkuliahan\prakerin\dotnet\belajar-dotnet\CREDA-App
+build_property._RazorSourceGeneratorDebug = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/Home/Beranda.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCZXJhbmRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/Home/Profil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/Home/UbahProfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVYmFoUHJvZmlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/BatasWaktuPengisian.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcQmF0YXNXYWt0dVBlbmdpc2lhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/BatasWaktuPengisianAddOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcQmF0YXNXYWt0dVBlbmdpc2lhbkFkZE9yRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/DaftarCabang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcRGFmdGFyQ2FiYW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/DaftarCabangAddOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcRGFmdGFyQ2FiYW5nQWRkT3JFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/KPI.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcS1BJLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/PartialsMasterData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcUGFydGlhbHNNYXN0ZXJEYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/PW_DaftarArea.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcUFdfRGFmdGFyQXJlYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/PW_DaftarAreaAddOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcUFdfRGFmdGFyQXJlYUFkZE9yRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/PW_PemetaanArea.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcUFdfUGVtZXRhYW5BcmVhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/PW_PemetaanAreaAddOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcUFdfUGVtZXRhYW5BcmVhQWRkT3JFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/UserManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcVXNlck1hbmFnZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuMasterData/UserManagementAddOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudU1hc3RlckRhdGFcVXNlck1hbmFnZW1lbnRBZGRPckVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuPemetaanSosial/CabangCMOPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVBlbWV0YWFuU29zaWFsXENhYmFuZ0NNT1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuPemetaanSosial/DaftarPemetaanSosial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVBlbWV0YWFuU29zaWFsXERhZnRhclBlbWV0YWFuU29zaWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuPemetaanSosial/DaftarPemetaanSosialSemuaCabang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVBlbWV0YWFuU29zaWFsXERhZnRhclBlbWV0YWFuU29zaWFsU2VtdWFDYWJhbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuPemetaanSosial/DaftarSemuaCabang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVBlbWV0YWFuU29zaWFsXERhZnRhclNlbXVhQ2FiYW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuPemetaanSosial/SeluruhCabangPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVBlbWV0YWFuU29zaWFsXFNlbHVydWhDYWJhbmdQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuPemetaanSosial/StatusDokumen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVBlbWV0YWFuU29zaWFsXFN0YXR1c0Rva3VtZW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuPemetaanSosial/TambahDokumen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVBlbWV0YWFuU29zaWFsXFRhbWJhaERva3VtZW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuPemetaanSosial/VerifikasiDokumen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVBlbWV0YWFuU29zaWFsXFZlcmlmaWthc2lEb2t1bWVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuUserManagement/UserManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVVzZXJNYW5hZ2VtZW50XFVzZXJNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/MenuUserManagement/UserManagementAddOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVVzZXJNYW5hZ2VtZW50XFVzZXJNYW5hZ2VtZW50QWRkT3JFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/Partials/CabangCMOPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcQ2FiYW5nQ01PUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/Partials/SeluruhCabangPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcU2VsdXJ1aENhYmFuZ1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/Partials/SocialMapping.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcU29jaWFsTWFwcGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarEkonomi/DetailPilarEkonomi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhckVrb25vbWlcRGV0YWlsUGlsYXJFa29ub21pLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarEkonomi/PilarEkonomi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhckVrb25vbWlcUGlsYXJFa29ub21pLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarKesehatan/DetailPilarKesehatan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhcktlc2VoYXRhblxEZXRhaWxQaWxhcktlc2VoYXRhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarKesehatan/PilarKesehatan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhcktlc2VoYXRhblxQaWxhcktlc2VoYXRhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarLingkungan/DetailPilarLingkungan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhckxpbmdrdW5nYW5cRGV0YWlsUGlsYXJMaW5na3VuZ2FuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarLingkungan/PilarLingkungan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhckxpbmdrdW5nYW5cUGlsYXJMaW5na3VuZ2FuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarMonografiWilayah/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhck1vbm9ncmFmaVdpbGF5YWhcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarMonografiWilayah/MonografiWilayah.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhck1vbm9ncmFmaVdpbGF5YWhcTW9ub2dyYWZpV2lsYXlhaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarMonografiWilayah/Monografi_Pekerjaan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhck1vbm9ncmFmaVdpbGF5YWhcTW9ub2dyYWZpX1Bla2VyamFhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarMonografiWilayah/Monografi_Pendidikan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhck1vbm9ncmFmaVdpbGF5YWhcTW9ub2dyYWZpX1BlbmRpZGlrYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarMonografiWilayah/Monografi_Penduduk.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhck1vbm9ncmFmaVdpbGF5YWhcTW9ub2dyYWZpX1BlbmR1ZHVrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarMonografiWilayah/Monografi_SaranaDanPrasarana.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhck1vbm9ncmFmaVdpbGF5YWhcTW9ub2dyYWZpX1NhcmFuYURhblByYXNhcmFuYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarMonografiWilayah/Monografi_Topografi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhck1vbm9ncmFmaVdpbGF5YWhcTW9ub2dyYWZpX1RvcG9ncmFmaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarMonografiWilayah/SkorPemetaanPilar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhck1vbm9ncmFmaVdpbGF5YWhcU2tvclBlbWV0YWFuUGlsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarPendidikan/DetailPilarPendidikan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhclBlbmRpZGlrYW5cRGV0YWlsUGlsYXJQZW5kaWRpa2FuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarPendidikan/PilarPendidikan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhclBlbmRpZGlrYW5cUGlsYXJQZW5kaWRpa2FuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarTanggapDarurat/DetailPilarTanggapDarurat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhclRhbmdnYXBEYXJ1cmF0XERldGFpbFBpbGFyVGFuZ2dhcERhcnVyYXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/PemetaanPilarTanggapDarurat/PilarTanggapDarurat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVtZXRhYW5QaWxhclRhbmdnYXBEYXJ1cmF0XFBpbGFyVGFuZ2dhcERhcnVyYXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/RencanaKerjaKesehatan/RenjaKesehatan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVuY2FuYUtlcmphS2VzZWhhdGFuXFJlbmphS2VzZWhhdGFuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/RencanaKerjaPendidikan/DetailRenjaPendidikan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVuY2FuYUtlcmphUGVuZGlkaWthblxEZXRhaWxSZW5qYVBlbmRpZGlrYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/RencanaKerjaPendidikan/KPIProgramAddOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVuY2FuYUtlcmphUGVuZGlkaWthblxLUElQcm9ncmFtQWRkT3JFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/RencanaKerjaPendidikan/RenjaPendidikan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVuY2FuYUtlcmphUGVuZGlkaWthblxSZW5qYVBlbmRpZGlrYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/RencanaKerjaPendidikan/RenjaPendidikanAddOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVuY2FuYUtlcmphUGVuZGlkaWthblxSZW5qYVBlbmRpZGlrYW5BZGRPckVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/RencanaKerja/DetailRencanaKerja.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVuY2FuYUtlcmphXERldGFpbFJlbmNhbmFLZXJqYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/RencanaKerja/RencanaKerjaTahunan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVuY2FuYUtlcmphXFJlbmNhbmFLZXJqYVRhaHVuYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Perkuliahan/prakerin/dotnet/belajar-dotnet/CREDA-App/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-79t586u6xi

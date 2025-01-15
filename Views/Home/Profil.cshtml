@@ -1,0 +1,70 @@
+@model CREDA_App.Models.User_Management
+
+<div class="card px-4 mt-4 align-items-center" style="border-radius: 8px;">
+    @if(Model.nama_file_gambar != null){
+      <img src="~/FotoProfil/@Model.nama_file_gambar" alt="logo-dummy" class="rounded-circle p-2" style="width: 150px; height: 150px; object-fit: cover;">
+    } else{
+      <img src="~/img/user-avatar.jpg" alt="logo-dummy" class="rounded-circle p-2" style="width: 150px; height: 150px; object-fit: cover;">
+    }
+    <a onclick="showModalUbahProfil('@Url.Action("UbahProfil", "HomeController", null, Context.Request.Scheme)', 'Ubah Profil')"
+        class="btn-warning-custom btn-sm p-2 mb-3" type="button" style="font-weight: 400;">
+        <div class="d-flex flex-row">
+            <div class="card d-flex justify-content-center align-items-center"
+                style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                <i class="fa-solid fa-pen-to-square" style="color: #FFCA0D;"></i>
+            </div>
+            <div class="ms-2">
+                <div class="mt-2 d-flex align-items-center">
+                    Ubah Profil
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="card px-4 mt-3" style="border-radius: 8px;">
+    <div class="title-pilar px-0 mt-3">ID Karyawan</div>
+    <div class="title-pilar px-0 mt-2" style="font-weight: 400;">@Model.id_karyawan</div>
+    <div class="title-pilar px-0 mt-3">Nama Karyawan</div>
+    <div class="title-pilar px-0 mt-2" style="font-weight: 400;">@Model.nama_karyawan</div>
+    <div class="title-pilar px-0 mt-3">Email</div>
+    <div class="title-pilar px-0 mt-2" style="font-weight: 400;">@Model.email</div>
+    <div class="title-pilar px-0 mt-3">Role</div>
+    <div class="title-pilar px-0 mt-2" style="font-weight: 400;">@Model.role</div>
+    <div class="title-pilar px-0 mt-3">Cabang</div>
+    <div class="title-pilar px-0 mt-2 mb-3" style="font-weight: 400;">@Model.kode_cabang - @ViewBag.Cabang.nama_cabang</div>
+</div>
+
+<!-- Modal Ubah Profil -->
+<div class="modal fade" id="modalubahprofil" tabindex="-1" aria-labelledby="modalubahprofil" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #000000;">
+        <h5 class="modal-title" style="color: #FFCA0D; font-weight: 600;"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFCA0D; opacity: 5;"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+@* Ubah Profil *@
+<script>
+	function showModalUbahProfil (url, title, id) {
+		console.log("Cek_"+title+"id_"+id)
+		@* return false; *@
+		$.ajax({
+			type: "GET",
+			url: '/Home/UbahProfil/' + id,
+			success: function (response) {
+				$("#modalubahprofil .modal-body").html(response);
+				$("#modalubahprofil .modal-title").html(title);
+				$("#modalubahprofil").modal('show');
+			},
+			error: function (error) {
+				alert('Maaf, terjadi kesalahan sistem.');
+			}
+		});
+
+	}
+</script>

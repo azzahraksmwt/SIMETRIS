@@ -1,0 +1,492 @@
+@model List<CREDA_App.Models.M_MonografiDesa>
+
+@{
+    ViewData["Title"] = "Monografi Wilayah";
+}
+
+<partial name="~/Views/Partials/SocialMapping.cshtml"/> 
+
+<section class="wizard-section">
+    <div class="row no-gutters">
+        <div class="form-wizard">
+            <form id="CanEditable" asp-action="MonografiWilayah" asp-controller="PemetaanPilarMonografiWilayah" asp-route-tahun_dokumen="@ViewBag.SelectedYear" asp-route-kode_cabang="@ViewBag.Kode_Cabang" method="post" role="form" class="row">
+                @* <input type="hidden" name="tahun_dokumen" value="@ViewBag.SelectedYear" /> *@
+                <div class="form-wizard-header">
+                    <ul class="list-unstyled form-wizard-steps clearfix d-flex justify-content-center">
+                        <li class="active" data-step="1">
+                            <span>
+                                <i class="bi bi-check2-all check-icon d-none" data-step="1"></i>
+                                <i class="bi bi-clock clock-icon" data-step="1"></i>
+                                <div class="position-absolute" style="margin-left: -0.5rem;">Topografi</div>
+                            </span>
+                        </li>
+                        <li data-step="2">
+                            <span>
+                                <i class="bi bi-check2-all check-icon d-none" data-step="2"></i>
+                                <i class="bi bi-clock clock-icon" data-step="2"></i>
+                                <div class="position-absolute" style="margin-left: -0.5rem;">Penduduk</div>
+                            </span>
+                        </li>
+                        <li data-step="3">
+                            <span>
+                                <i class="bi bi-check2-all check-icon d-none" data-step="3"></i>
+                                <i class="bi bi-clock clock-icon" data-step="3"></i>
+                                <div class="position-absolute" style="margin-left: -0.5rem;">Pendidikan</div>
+                            </span>
+                        </li>
+                        <li data-step="4">
+                            <span>
+                                <i class="bi bi-check2-all check-icon d-none" data-step="4"></i>
+                                <i class="bi bi-clock clock-icon" data-step="4"></i>
+                                <div class="position-absolute" style="margin-left: -0.5rem;">Pekerjaan</div>
+                            </span>
+                        </li>
+                        <li data-step="5" style="border-bottom-right-radius: 8px; border-top-right-radius: 8px; width: 35%;">
+                            <span style="margin-left: 50%;">
+                                <i class="bi bi-check2-all check-icon d-none" data-step="5"></i>
+                                <i class="bi bi-clock clock-icon" data-step="5"></i>
+                                <div class="position-absolute" style="margin-left: -2.8rem; width: 140px;">Sarana dan Prasarana</div>
+                            </span>
+                        </li>
+                    </ul> 
+                </div>
+                @* @if (User.HasClaim(x => x.Value == "ESRO")){ *@
+                <fieldset class="wizard-fieldset show" data-step="1" style="color: #000;">
+                    <partial name="~/Views/PemetaanPilarMonografiWilayah/Monografi_Topografi.cshtml"/>
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 d-flex justify-content-end">
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 next-btn">
+                                    Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset> 
+                <fieldset class="wizard-fieldset" data-step="2" style="color: #000;">
+                    <partial name="~/Views/PemetaanPilarMonografiWilayah/Monografi_Penduduk.cshtml"/> 
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 d-flex justify-content-end">
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 previous-btn">
+                                    <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+                                </a>
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 next-btn">
+                                    Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>  
+                <fieldset class="wizard-fieldset" data-step="3">
+                    <partial name="~/Views/PemetaanPilarMonografiWilayah/Monografi_Pendidikan.cshtml"/>
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 d-flex justify-content-end">
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 previous-btn">
+                                    <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+                                </a>
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 next-btn">
+                                    Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>  
+                <fieldset class="wizard-fieldset" data-step="4">
+                    <partial name="~/Views/PemetaanPilarMonografiWilayah/Monografi_Pekerjaan.cshtml"/>
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 d-flex justify-content-end">
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 previous-btn">
+                                    <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+                                </a>
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 next-btn">
+                                    Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>  
+                <fieldset class="wizard-fieldset" data-step="5">
+                    @* <input asp-for="created_at" id="created_at" name="created_at" type="datetime-local" hidden> *@
+                    <partial name="~/Views/PemetaanPilarMonografiWilayah/Monografi_SaranaDanPrasarana.cshtml"/>
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 d-flex justify-content-end">
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 previous-btn">
+                                    <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+                                </a>
+                                <button type="submit" href="javascript:;" class="btn-warning-custom btn-sm ms-2 submit-btn" style="background-color: #FFCA0D;">
+                                    Simpan <i class="fa-solid fa-floppy-disk"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                @* }  *@
+                @* else{
+                <fieldset class="wizard-fieldset show" data-step="1" style="color: #000;" disabled>
+                    <partial name="~/Views/PemetaanPilarMonografiWilayah/Monografi_Topografi.cshtml"/>
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 d-flex justify-content-end">
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 next-btn">
+                                    Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset> 
+                <fieldset class="wizard-fieldset" data-step="2" style="color: #000;" disabled>
+                    <partial name="~/Views/PemetaanPilarMonografiWilayah/Monografi_Penduduk.cshtml"/> 
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 d-flex justify-content-end">
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 previous-btn">
+                                    <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+                                </a>
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 next-btn">
+                                    Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>  
+                <fieldset class="wizard-fieldset" data-step="3" disabled>
+                    <partial name="~/Views/PemetaanPilarMonografiWilayah/Monografi_Pendidikan.cshtml"/>
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 d-flex justify-content-end">
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 previous-btn">
+                                    <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+                                </a>
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 next-btn">
+                                    Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>  
+                <fieldset class="wizard-fieldset" data-step="4" disabled>
+                    <partial name="~/Views/PemetaanPilarMonografiWilayah/Monografi_Pekerjaan.cshtml"/>
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 d-flex justify-content-end">
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 previous-btn">
+                                    <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+                                </a>
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 next-btn">
+                                    Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>  
+                <fieldset class="wizard-fieldset" data-step="5" disabled>
+                    <input asp-for="created_at" id="created_at" name="created_at" type="datetime-local" hidden>
+                    <partial name="~/Views/PemetaanPilarMonografiWilayah/Monografi_SaranaDanPrasarana.cshtml"/>
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 d-flex justify-content-end">
+                                <a href="javascript:;" class="btn-warning-custom btn-sm ms-2 previous-btn">
+                                    <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+                                </a>
+                                <button type="submit" href="javascript:;" class="btn-warning-custom btn-sm ms-2 submit-btn" style="background-color: #FFCA0D;">
+                                    Simpan <i class="fa-solid fa-floppy-disk"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                }   *@
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+jQuery(document).ready(function() {
+    function updateIcons(step) {
+        jQuery('.check-icon[data-step="' + step + '"]').removeClass('d-none');
+        jQuery('.clock-icon[data-step="' + step + '"]').addClass('d-none');
+    }
+
+    function showFieldset(step) {
+        jQuery('.wizard-fieldset').removeClass('show');
+        jQuery('.wizard-fieldset[data-step="' + step + '"]').addClass('show');
+    }
+
+    // Click on next button
+    jQuery('.next-btn').click(function() {
+        var parentFieldset = jQuery(this).parents('.wizard-fieldset');
+        var currentActiveStep = jQuery(this).parents('.form-wizard').find('.form-wizard-steps .active');
+        var nextWizardStep = true;
+        parentFieldset.find('.wizard-required').each(function() {
+            var thisValue = jQuery(this).val();
+
+            if (thisValue == "") {
+                jQuery(this).siblings(".wizard-form-error").slideDown();
+                nextWizardStep = false;
+            } else {
+                jQuery(this).siblings(".wizard-form-error").slideUp();
+            }
+        });
+        if (nextWizardStep) {
+            var currentStep = currentActiveStep.data('step');
+            var nextStep = currentStep + 1;
+
+            showFieldset(nextStep);
+
+            currentActiveStep.removeClass('active').addClass('activated').next().addClass('active');
+
+            updateIcons(currentStep);
+        }
+    });
+
+    // Click on previous button
+    jQuery('.previous-btn').click(function() {
+        var currentActiveStep = jQuery(this).parents('.form-wizard').find('.form-wizard-steps .active');
+        var currentStep = currentActiveStep.data('step');
+        var prevStep = currentStep - 1;
+
+        showFieldset(prevStep);
+
+        currentActiveStep.removeClass('active').prev().removeClass('activated').addClass('active');
+
+        // Optional: revert icons on going back to previous step
+        jQuery('.check-icon[data-step="' + currentStep + '"]').addClass('d-none');
+        jQuery('.clock-icon[data-step="' + currentStep + '"]').removeClass('d-none');
+    });
+
+    // Click on form submit button
+    jQuery(document).on("click", ".form-wizard .submit-btn", function() {
+        var parentFieldset = jQuery(this).parents('.wizard-fieldset');
+        parentFieldset.find('.wizard-required').each(function() {
+            var thisValue = jQuery(this).val();
+            if (thisValue == "") {
+                jQuery(this).siblings(".wizard-form-error").slideDown();
+            } else {
+                jQuery(this).siblings(".wizard-form-error").slideUp();
+            }
+        });
+    });
+
+    // Focus on input field check empty or not
+    jQuery(".form-control").on('focus blur', function(event) {
+        var tmpThis = jQuery(this).val();
+        var parent = jQuery(this).parent();
+        if (event.type === 'focus' || tmpThis !== '') {
+            parent.addClass("focus-input");
+        } else {
+            parent.removeClass("focus-input");
+            jQuery(this).siblings('.wizard-form-error').slideDown("3000");
+        }
+    });
+});
+</script>
+
+@* <script>
+    $(document).ready(function () {
+        var localData = JSON.parse(localStorage.getItem("monografi_wilayah"));
+        if (localData == null || localData == undefined) {
+            var monografi_wilayah = {
+                tpr_topografidesa: null,
+                tpr_perkembangandesa: null,
+                tpr_luaswilayah: null,
+                tpr_wilayahutara: null,
+                tpr_wilayahselatan: null,
+                tpr_wilayahbarat: null,
+                tpr_wilayahtimur: null,
+                tpr_kecamatan: null,
+                tpr_kabupaten: null,
+                tpr_provinsi: null,
+                pendu_usia014: null,
+                pendu_usia1565: null,
+                pendu_usia65: null,
+                pendu_islam: null,
+                pendu_kristen: null,
+                pendu_katolik: null,
+                pendu_budha: null,
+                pendu_konghucu: null,
+                pendu_hindu: null,
+                pendu_lainnya: null,
+                pendu_pendudukmiskin: null,
+                pendu_umr: null,
+                pendi_tidaksekolah: null,
+                pendi_sd: null,
+                pendi_smp: null,
+                pendi_smadansmk: null,
+                pendi_diploma1: null,
+                pendi_diploma2: null,
+                pendi_diploma3: null,
+                pendi_diploma4ataustrata1: null,
+                pendi_strata2: null,
+                pendi_strata3: null,
+                peker_pns: null,
+                peker_karyawanswasta: null,
+                peker_karyawanbumn: null,
+                peker_tni: null,
+                peker_kepolisian: null,
+                peker_wiraswasta: null,
+                peker_pensiunan: null,
+                peker_pelajarataumahasiswa: null,
+                peker_buruh: null,
+                peker_irt: null,
+                peker_dosen: null,
+                peker_guru: null,
+                peker_lainlain: null,
+                peker_tidakbekerja: null,
+                sarana_administrasi_kantordesa: null,
+                sarana_kesehatan_puskemas: null,
+                sarana_kesehatan_pustu: null,
+                sarana_kesehatan_poskesdes: null,
+                sarana_kesehatan_ukbm: null,
+                sarana_kesehatan_apotek: null,
+                sarana_pendidikan_perpusdes: null,
+                sarana_pendidikan_paud: null,
+                sarana_pendidikan_tk: null,
+                sarana_pendidikan_sd: null,
+                sarana_pendidikan_smp: null,
+                sarana_pendidikan_sma: null,
+                sarana_ibadah_masjid: null,
+                sarana_ibadah_mushola: null,
+                sarana_ibadah_gereja: null,
+                sarana_ibadah_pura: null,
+                sarana_ibadah_wihara: null,
+                sarana_ibadah_klenteng: null,
+                sarana_umum_tempatolahraga: null,
+                sarana_umum_tempatkesenian: null,
+                sarana_umum_balaipertemuan: null,
+                sarana_umum_mckumum: null,
+                sarana_umum_pasar: null,
+                sarana_umum_wificorner: null,
+                sarana_keuangan_bank: null,
+                sarana_keuangan_koperasisimpanpinjam: null,
+                sarana_keuangan_lembagakeuangannonbank: null,
+                sarana_keuangan_atm: null,
+                sarana_keuangan_minimarket: null,
+                sarana_keuangan_tokokelontong: null,
+                sarana_keuangan_umkmdesa: null,
+            }
+            localStorage.setItem("monografi_wilayah", JSON.stringify(monografi_wilayah))
+        }
+    });
+    
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var monografi_wilayah = JSON.parse(localStorage.getItem("monografi_wilayah")) || {
+            tpr_topografidesa: null,
+            tpr_perkembangandesa: null,
+            tpr_luaswilayah: null,
+            tpr_wilayahutara: null,
+            tpr_wilayahselatan: null,
+            tpr_wilayahbarat: null,
+            tpr_wilayahtimur: null,
+            tpr_kecamatan: null,
+            tpr_kabupaten: null,
+            tpr_provinsi: null,
+            pendu_usia014: null,
+            pendu_usia1565: null,
+            pendu_usia65: null,
+            pendu_islam: null,
+            pendu_kristen: null,
+            pendu_katolik: null,
+            pendu_budha: null,
+            pendu_konghucu: null,
+            pendu_hindu: null,
+            pendu_lainnya: null,
+            pendu_pendudukmiskin: null,
+            pendu_umr: null,
+            pendi_tidaksekolah: null,
+            pendi_sd: null,
+            pendi_smp: null,
+            pendi_smadansmk: null,
+            pendi_diploma1: null,
+            pendi_diploma2: null,
+            pendi_diploma3: null,
+            pendi_diploma4ataustrata1: null,
+            pendi_strata2: null,
+            pendi_strata3: null,
+            peker_pns: null,
+            peker_karyawanswasta: null,
+            peker_karyawanbumn: null,
+            peker_tni: null,
+            peker_kepolisian: null,
+            peker_wiraswasta: null,
+            peker_pensiunan: null,
+            peker_pelajarataumahasiswa: null,
+            peker_buruh: null,
+            peker_irt: null,
+            peker_dosen: null,
+            peker_guru: null,
+            peker_lainlain: null,
+            peker_tidakbekerja: null,
+            sarana_administrasi_kantordesa: null,
+            sarana_kesehatan_puskemas: null,
+            sarana_kesehatan_pustu: null,
+            sarana_kesehatan_poskesdes: null,
+            sarana_kesehatan_ukbm: null,
+            sarana_kesehatan_apotek: null,
+            sarana_pendidikan_perpusdes: null,
+            sarana_pendidikan_paud: null,
+            sarana_pendidikan_tk: null,
+            sarana_pendidikan_sd: null,
+            sarana_pendidikan_smp: null,
+            sarana_pendidikan_sma: null,
+            sarana_ibadah_masjid: null,
+            sarana_ibadah_mushola: null,
+            sarana_ibadah_gereja: null,
+            sarana_ibadah_pura: null,
+            sarana_ibadah_wihara: null,
+            sarana_ibadah_klenteng: null,
+            sarana_umum_tempatolahraga: null,
+            sarana_umum_tempatkesenian: null,
+            sarana_umum_balaipertemuan: null,
+            sarana_umum_mckumum: null,
+            sarana_umum_pasar: null,
+            sarana_umum_wificorner: null,
+            sarana_keuangan_bank: null,
+            sarana_keuangan_koperasisimpanpinjam: null,
+            sarana_keuangan_lembagakeuangannonbank: null,
+            sarana_keuangan_atm: null,
+            sarana_keuangan_minimarket: null,
+            sarana_keuangan_tokokelontong: null,
+            sarana_keuangan_umkmdesa: null,
+        };
+
+        document.querySelectorAll('input[type="radio"], input[type="text"]').forEach(input => {
+            input.addEventListener('change', function() {
+                var key = input.getAttribute('name');
+                monografi_wilayah[key] = input.value;
+                localStorage.setItem("monografi_wilayah", JSON.stringify(monografi_wilayah));
+            });
+        });
+
+        loadDataFromLocalStorage();
+    });
+
+    function loadDataFromLocalStorage() {
+        var monografi_wilayah = JSON.parse(localStorage.getItem("monografi_wilayah"));
+        document.querySelectorAll('input[type="radio"], input[type="text"]').forEach(input => {
+            let key = input.getAttribute('name');
+            if (monografi_wilayah[key]) {
+                if (input.type === 'radio' && monografi_wilayah[key] === input.value) {
+                    input.checked = true;
+                } else if (input.type === 'text') {
+                    input.value = monografi_wilayah[key];
+                }
+            }
+        });
+    }
+</script> *@

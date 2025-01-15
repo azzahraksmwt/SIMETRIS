@@ -1,0 +1,223 @@
+@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Daftar Semua Cabang";
+
+    var id = Model.FirstOrDefault()?.id ?? 0;
+    var tahun_dokumen = Model.FirstOrDefault()?.tahun_dokumen ?? 0;
+}
+
+<div class="d-flex flex-row py-4 justify-content-between">
+	<nav aria-label="breadcrumb m" class="mt-4" style="font-size: 14px;">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a asp-action="Beranda" asp-controller="Home">
+				<i class="fa-solid fa-house" style="color: #FFCA0D;"></i>
+			</a>
+		</li>
+		<li class="breadcrumb-item"><a asp-action="DaftarPemetaanSosial" asp-controller="MenuPemetaanSosial" style="color: #6C757D; text-decoration: none;">Daftar Pemetaan Sosial</a></li>
+		<li class="breadcrumb-item active" aria-current="page" style="color: #000;">@ViewBag.tahunDokumen</li>
+	</ol>
+	</nav>
+
+    @* @if (ViewBag.allApproved)
+    { *@
+        @if(User.HasClaim(x => x.Value == "Dept Head CSR")) {
+            @if(ViewBag.totalCabang == ViewBag.totalPersetujuan && ViewBag.verifikasiDokumen == "Dokumen Belum Diverifikasi") {
+                <a onclick="showModalVerifikasiDokumen('@Url.Action("VerifikasiDokumen", "MenuPemetaanSosialController", null, Context.Request.Scheme)', 'Verifikasi Dokumen', '@ViewBag.tahunDokumen')"
+                    class="btn-warning-custom btn-sm ms-auto p-2" type="button" style="font-weight: 400;">
+                    <div class="d-flex flex-row mt-1">
+                        <div class="card d-flex justify-content-center align-items-center"
+                            style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                            <i class="fa-solid fa-check-to-slot" style="color: #FFCA0D;"></i>
+                        </div>
+                        <div class="ms-2">
+                            <div class="mt-2 d-flex align-items-center">
+                                Verifikasi Dokumen
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            } else {
+                <a onclick="return false;"
+                    class="btn-warning-custom btn-sm ms-auto p-2 disabled-link" type="button" style="font-weight: 400; pointer-events: none; opacity: 0.5; cursor: not-allowed;">
+                    <div class="d-flex flex-row mt-1">
+                        <div class="card d-flex justify-content-center align-items-center"
+                            style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                            <i class="fa-solid fa-check-to-slot" style="color: #FFCA0D;"></i>
+                        </div>
+                        <div class="ms-2">
+                            <div class="mt-2 d-flex align-items-center">
+                                Verifikasi Dokumen
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            }
+        }
+    @* } else {
+        <a onclick="return false;"
+            class="btn ms-auto me-2 p-2 disabled" type="button" style="font-weight: 400; text-decoration: none; border-color: #ffca0d;">
+            <div class="d-flex flex-row">
+                <div class="card d-flex justify-content-center align-items-center"
+                    style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                    <i class="fa-solid fa-folder-open" style="color: #FFCA0D;"></i>
+                </div>
+                <div class="ms-2">
+                    <div class="mt-2 d-flex align-items-center text-masterdata">
+                        Status Dokumen
+                    </div>
+                </div>
+            </div>
+        </a>
+    } *@
+</div>
+
+<div class="card px-4" style="border-radius: 8px;">
+	<div class="title-pilar px-0 mt-3 mb-3" style="border-bottom: 4px solid #ffca0d; display: inline-block; padding-bottom: 5px; width: fit-content;">
+		Daftar Cabang (@ViewBag.totalPersetujuan/@ViewBag.totalCabang)
+	</div>
+    <div class="row gx-3 mb-3">
+        <div class="table-responsive">
+            <div class="table-masterdata">
+                <table id="dataTabelPemetaanPilar" class="table align-middle table-hover m-0 border">
+                    <thead class="text-title-tabel">
+                        <tr>
+                            <th class="tabel-th text-center">No</th>
+                            <th class="tabel-th text-center">Nama Cabang</th>
+                            <th class="tabel-th text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-tabel">
+                        @for (int i = 0; i < Model.Count(); i++)
+                        {
+                            var data = Model.ElementAt(i); 
+                            <tr>
+                                <td class="text-center">@(i + 1)</td>
+                                <td class="text-center">@data.nama_cabang</td>
+                                <td class="text-center">
+                                    <a onclick="showModalStatusDokumen('@Url.Action("StatusDokumen", "MenuPemetaanSosialController", null, Context.Request.Scheme)', 'Status Dokumen', '@data.id', '@data.tahun_dokumen')"
+                                        class="btn ms-auto me-2 p-2" type="button" style="font-weight: 400; text-decoration: none; border-color: #ffca0d;">
+                                        <div class="d-flex flex-row">
+                                            <div class="card d-flex justify-content-center align-items-center"
+                                                style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                                <i class="fa-solid fa-folder-open" style="color: #FFCA0D;"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="mt-2 d-flex align-items-center text-masterdata">
+                                                    Status Dokumen
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a asp-action="MonografiWilayah" asp-controller="PemetaanPilarMonografiWilayah" asp-route-kode_cabang="@data.kode_cabang" asp-route-tahun_dokumen="@data.tahun_dokumen" 
+                                        class="btn p-2" type="button" style="font-weight: 400; text-decoration: none; background-color: #ffca0d;">
+                                        <div class="d-flex flex-row">
+                                            <div class="card d-flex justify-content-center align-items-center"
+                                                style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                                <i class="fa-solid fa-pen-to-square" style="color: #FFCA0D;"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="mt-2 d-flex align-items-center text-masterdata">
+                                                    Lihat Detail
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DataTables Initialization -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dataTabelPemetaanPilar').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+
+        $('.dataTables_filter').css('margin-bottom', '15px');
+        $('.dataTables_paginate').css('margin-top', '10px');
+        $('.dataTables_info').css('margin-top', '10px');
+    });
+</script>
+
+<!-- Modal Status Dokumen -->
+<div class="modal fade" id="modalstatusdokumen" tabindex="-1" aria-labelledby="modalstatusdokumen" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #000000;">
+        <h5 class="modal-title" style="color: #FFCA0D; font-weight: 600;"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFCA0D; opacity: 5;"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Verifikasi Dokumen -->
+<div class="modal fade" id="modalverifikasidokumen" tabindex="-1" aria-labelledby="modalverifikasidokumen" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #000000;">
+        <h5 class="modal-title" style="color: #FFCA0D; font-weight: 600;"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFCA0D; opacity: 5;"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+@* Status Dokumen *@
+<script>
+	function showModalStatusDokumen (url, title, id, tahunDokumen) {
+		console.log("Cek_" + title + " id_" + id + "tahunDokumen_" + tahunDokumen);
+		@* return false; *@
+		$.ajax({
+			type: "GET",
+			url: '/MenuPemetaanSosial/StatusDokumen/' + '?id=' + id + '&tahunDokumen=' + tahunDokumen,
+			success: function (response) {
+				$("#modalstatusdokumen .modal-body").html(response);
+				$("#modalstatusdokumen .modal-title").html(title);
+				$("#modalstatusdokumen").modal('show');
+			},
+			error: function (error) {
+				alert('Maaf, terjadi kesalahan sistem.');
+			}
+		});
+
+	}
+</script>
+
+@* Verifikasi Dokumen *@
+<script>
+	function showModalVerifikasiDokumen (url, title, tahunDokumen) {
+		console.log("Cek_" + title + "tahunDokumen_" + tahunDokumen);
+		@* return false; *@
+		$.ajax({
+			type: "GET",
+			url: '/MenuPemetaanSosial/VerifikasiDokumen/' + '?tahun_dokumen=' + tahunDokumen,
+			success: function (response) {
+				$("#modalverifikasidokumen .modal-body").html(response);
+				$("#modalverifikasidokumen .modal-title").html(title);
+				$("#modalverifikasidokumen").modal('show');
+			},
+			error: function (error) {
+				alert('Maaf, terjadi kesalahan sistem.');
+			}
+		});
+
+	}
+</script>

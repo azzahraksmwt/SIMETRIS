@@ -1,0 +1,398 @@
+﻿@model CREDA_App.Models.User_Management
+@{
+    ViewData["Title"] = "Landing Page";
+    Layout = null;
+    string returnUrl = ViewData["ReturnUrl"] as string;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREDA App</title>
+    <link href="~/lib/bootstrap-5.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/custom_css.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="~/lib/bootstrap-5.0.2/js/bootstrap.bundle.min.js"></script>
+</head>
+<body style="padding-left: 0px; padding-right: 0px;">
+    <header class="navbar navbar-dark bg-dark header" style="padding-left: 7rem; padding-right: 7rem;">
+        <a href="#">
+            <img src="~/img/logo-creda.png" alt="logo-creda">
+        </a>
+        <a href="#">
+            <img src="~/img/logo-ut.png" alt="logo-ut">
+        </a>
+    </header>
+
+    <main>
+      <div class="container-fluid vh-100 d-flex align-items-center" style="background-image: url('@Url.Content("~/img/landing-page-background.png")'); background-size: cover;">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-6">
+              <h1 class="tagline-h1">
+                Ekosistem Digital Untuk Perencanaan, Pelaksanaan, dan Evaluasi Program CSR
+              </h1>
+              <h4 class="tagline-h4">
+                Tumbuh Bersama, Berkembang Bersama, Kuat Bersama.
+              </h4>
+              <button type="button" class="btn btn-masuk" data-bs-toggle="modal" data-bs-target="#modalMasuk">
+                Masuk
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="modalMasuk" tabindex="-1" role="dialog" aria-labelledby="modalMasukLabel" 
+        aria-hidden="true" style="border-radius: 16px;">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="container">
+                @* <div class="row mt-5">
+                  <div class="col text-center">
+                    <img src="~/img/logo-creda.png">
+                  </div>
+                </div>
+                <div class="row mt-4 text-center fs-6">
+                  <p>
+                    CREDA are committed to helping your
+                    <br>
+                    Community Relations Digital Assistance
+                    <br>
+                    We believe that everyone has the potential to succeed
+                    <br>
+                    build strong relationships and goodwill through time.                   
+                  </p>
+                </div> *@
+                <div class="row mt-3 mx-auto">
+                  <form asp-action="Index" method="post">
+                    <input type="hidden" name="returnUrl" value="@returnUrl"/>
+                    <div class="mb-3">
+                      <label for="username" class="col-form-label fw-bold">Username</label>
+                      <input asp-for="id_karyawan" type="text" class="form-control" id="username" placeholder="ID Karyawan/Username">
+                    </div>
+                    <div class="mb-3">
+                      <label for="passwordlogin" class="col-form-label fw-bold">Password</label>
+                      <input asp-for="password" type="password" class="form-control" id="passwordlogin" placeholder="Password"></input>
+                    </div>
+                    <div class="mb-3">
+                      <button type="submit" class="w-100 fw-bold btn btn-masuk">Login to CREDA</button>
+                    </div>
+                    <div class="mb-5 text-center">
+                      Don't have an account? <a class="w-100 fw-bold" href="#" data-bs-toggle="modal" data-bs-target="#modalSignUp" data-bs-dismiss="modal" style="color: #FFCA0D;">Sign Up</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpLabel" 
+        aria-hidden="true" style="border-radius: 16px;">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="container">
+                <div class="row mt-4 justify-content-center fs-3 fw-bold">
+                  Register
+                </div>
+                <div class="row mt-3 mx-auto">
+                  <form asp-action="Register" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                      <label for="id_karyawan" class="col-form-label fw-bold">ID Karyawan</label>
+                      <input asp-for="id_karyawan" type="text" class="form-control input" id="id_karyawan" placeholder="ID Karyawan/Username" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="nama_karyawan" class="col-form-label fw-bold">Nama Karyawan</label>
+                      <input asp-for="nama_karyawan" type="text" class="form-control input" id="nama_karyawan" placeholder="Nama Karyawan" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="jenis_kelamin" class="col-form-label fw-bold">Jenis Kelamin</label>
+                      <div class="d-flex">
+                        <div class="form-check px-2" style="margin-bottom: 0px; min-height: 0px;">
+                          <input asp-for="jenis_kelamin" name="jenis_kelamin" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioLaki-laki" value="Laki-laki" required>
+                          <label class="form-check-label ms-2 ms-2" for="flexRadioLaki-laki">
+                            Laki-laki
+                          </label>
+                        </div>
+                        <div class="form-check px-2" style="margin-bottom: 0px; min-height: 0px;">
+                          <input asp-for="jenis_kelamin" name="jenis_kelamin" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioPerempuan" value="Perempuan" required>
+                          <label class="form-check-label ms-2 ms-2" for="flexRadioPerempuan">
+                            Perempuan
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="alamat" class="col-form-label fw-bold">Alamat</label>
+                      <input asp-for="alamat" type="text" class="form-control input" id="alamat" placeholder="Alamat" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="no_telepon" class="col-form-label fw-bold">No Telepon</label>
+                      <input asp-for="no_telepon" type="text" class="form-control input" id="no_telepon" placeholder="No Telepon" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="divisi" class="col-form-label fw-bold">Divisi</label>
+                      <input asp-for="divisi" type="text" class="form-control input" id="divisi" placeholder="Divisi" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="cabang" class="col-form-label fw-bold">Cabang</label>
+                      <select asp-for="kode_cabang" id="cabang" class="form-control mt-2">
+                          <option disabled selected value="">--Pilih Cabang--</option>
+                          @foreach (var area in ViewBag.M_Cabang)
+                          {
+                            if (area.deleted_at == null)
+                            {
+                                <option value="@area.kode_cabang">@area.nama_cabang</option>
+                            }
+                          }
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="col-form-label fw-bold">Email</label>
+                      <input asp-for="email" type="text" class="form-control input" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="col-form-label fw-bold">Password</label>
+                      <input asp-for="password" type="password" class="form-control input" id="password" placeholder="Password" required></input>
+                    </div>
+                    <div class="mb-3">
+                      <button type="submit" class="w-100  fw-bold btn btn-masuk">Sign Up</button>
+                    </div>
+                    <div class="mb-5 text-center">
+                      Already have an account? <a class="w-100 fw-bold" <a href="#" data-bs-toggle="modal" data-bs-target="#modalMasuk" data-bs-dismiss="modal" style="color: #FFCA0D;">Login</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+  
+      <div class="container-fluid" style="background-image: url('@Url.Content("~/img/landing-page-frame2.png")'); background-position: right; background-repeat: no-repeat; background-size: inherit; background-position-y: Top;">
+        <div class="container">
+          <div class="row mt-5 align-items-baseline">
+            <div class="col-xl-2 col-md-4 col-6">
+              <img src="~/img/logoUT.png" style="width: 182px; height: 48px;">
+            </div>
+            <div class="col-xl-2 col-md-4 col-6">
+              <img src="~/img/logoUTREES.png" style="width: 170.21px; height: 74px;">
+            </div>
+            <div class="col-xl-2 col-md-4 col-6">
+              <img src="~/img/logoUTFUTURE.png" style="width: 170.21px; height: 48px;">
+            </div>
+            <div class="col-xl-2 col-md-4 col-6">
+              <img src="~/img/logoUTCARE.png" style="width: 170.21px; height: 80px;">
+            </div>
+            <div class="col-xl-2 col-md-4 col-6">
+              <img src="~/img/logoUTGROWTH.png" style="width: 170.21px; height: 63px;">
+            </div>
+            <div class="col-xl-2 col-md-4 col-6">
+              <img src="~/img/logoUTACTION.png" style="width: 170.21px; height: 63px;">
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-left align-items-left flex-container mt-5">
+            <div class="shape-fitur"></div>
+            <div class="text-fitur mx-2">
+                Fitur Baru Platform CREDA
+            </div>
+          </div>
+
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <div class="card d-flex justify-content-center align-items-center" style="background-color: #FFCA0D; width: 50px; height: 50px;">
+                  <img src="~/img/fitur-plan.png" class="img-fluid">
+                </div>
+                <div class="text-list-fitur my-2">
+                  Perencanaan Strategis
+                </div>
+                <div class="text-detail-list-fitur">
+                  Membantu dalam perencanaan program - program CSR setahun kedepan 
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="card d-flex justify-content-center align-items-center" style="background-color: #FFCA0D; width: 50px; height: 50px;">
+                  <img src="~/img/fitur-plan.png" class="img-fluid">
+                </div>
+                <div class="text-list-fitur my-2">
+                  Efisiensi Pelaksanaan Kegiatan
+                </div>
+                <div class="text-detail-list-fitur">
+                  Fitur monitoring mulai dari perencanaan, persetujuan, dan implementasi kegiatan CSR di PT. United Tractors, Tbk. 
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="card d-flex justify-content-center align-items-center" style="background-color: #FFCA0D; width: 50px; height: 50px;">
+                  <img src="~/img/fitur-evaluasi.png" class="img-fluid">
+                </div>
+                <div class="text-list-fitur my-2">
+                  Evaluasi dan Laporan
+                </div>
+                <div class="text-detail-list-fitur">
+                  Otomatisasi pembuatan laporan untuk evaluasi program CSR.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="card d-flex justify-content-center align-items-center" style="background-color: #FFCA0D; width: 50px; height: 50px;">
+                  <img src="~/img/fitur-plan.png" class="img-fluid">
+                </div>
+                <div class="text-list-fitur my-2">
+                  Manajemen Komunitas
+                </div>
+                <div class="text-detail-list-fitur">
+                  Meningkatkan kolaborasi dan kebermanfaatan bagi komunitas penerima manfaat. 
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="card d-flex justify-content-center align-items-center" style="background-color: #FFCA0D; width: 50px; height: 50px;">
+                  <img src="~/img/fitur-plan.png" class="img-fluid">
+                </div>
+                <div class="text-list-fitur my-2">
+                  Kolaborasi Tim
+                </div>
+                <div class="text-detail-list-fitur">
+                  Ruang kerja bersama yang memudahkan koordinasi antar tim dan stakeholder. 
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex container line-grey mt-5 justify-content-center"></div>
+      
+          <div class="container">
+            <div class="row mt-5">
+              <div class="col-lg-6">
+                <p class="fw-bold text-aktifitas">Semua Aktifitas Bersama 
+                  <span class="text-aktifitas-span">Masyarakat</span> dan 
+                  <span class="text-aktifitas-span">Lingkungan</span>
+                </p>
+                <div class="col-12 text-detail-aktifitas">
+                    Bentuk nyata dari upaya PT. United Tractors sebagai salah satu perusahaan penyandang gelar <span class="fw-bold">Best Implementation SGD’s</span> untuk bermanfaat bagi masyarakat dan lingkungan sekitar melalui program - program CSR.
+                </div>
+              </div>
+      
+              <div class="col-lg-6 col-md-12">
+                <div class="card border-0 card-sobat" style="height: 350px; background-image: linear-gradient(78.85deg, rgba(5, 5, 5, 0.45) 10.22%, rgba(0, 0, 0, 0) 97.54%), url('@Url.Content("~/img/aktivitas1.png")'); background-size: cover; background-position: center; color: white;">
+                  <div class="card-body text-right-container card-sobat d-flex flex-column" style="flex-direction: column;">
+                    <div class="shape-sobat"></div>
+                    <h4 class="text-title-sobat">Program SOBAT United Tractors</h4>
+                    <p class="text-detail-sobat">Program SOBAT sebagai salah satu wadah pengembangan kualitas bibit muda masa depan bangsa yang handal dan terampil.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-lg-8 mb-3">
+                <div class="card border-0 card-sobat" style="height: 350px; background-image: linear-gradient(78.85deg, rgba(5, 5, 5, 0.45) 10.22%, rgba(0, 0, 0, 0) 97.54%), url('@Url.Content("~/img/aktivitas2.png")');">
+                  <div class="card-body card-sobat d-flex flex-column">
+                    <div class="shape-bantuan"></div>
+                    <h4 class="text-title-bantuan d-flex">Bantuan Korban Terdampak Bencana Alam</h4>
+                    <p class="text-detail-bantuan">PT. United Tractors hadir di tengah masyarakat yang terdampak bencana alam untuk membantu meringankan beban mereka.</p>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-lg-4">
+                <div class="card border-0 card-sobat" style="height: 350px; background-image: linear-gradient(78.85deg, rgba(5, 5, 5, 0.45) 10.22%, rgba(0, 0, 0, 0) 97.54%), url('@Url.Content("~/img/aktivitas3.png")');">
+                  <div class="card-body text-right-container card-sobat d-flex flex-column">
+                    <div class="shape-sobat"></div>
+                    <h4 class="text-title-sobat">Peresmian Poliklinik UT</h4>
+                    <p class="text-detail-sobat">PT. United Tractors berkomitmen untuk menyediakan fasilitas kesehatan yang memadai dan mudah dijangkau.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container-fluid" style="background-color: #17181A; background-image: url('@Url.Content("~/img/landing-page-frame3.png")'); background-position: left; background-repeat: no-repeat; background-size: inherit; background-position-y: bottom;">
+        <div class="container-fluid" style="background-image: url('@Url.Content("~/img/landing-page-frame1.png")'); background-position: right; background-repeat: no-repeat; background-size: inherit; background-position-y: Top;">
+          <div class="container py-3 mt-5">
+            <div class="d-flex justify-content-left align-items-left flex-container mt-5">
+              <div class="shape-fitur"></div>
+              <div class="text-fitur mx-2" style="color: white;">
+                  Pilar - Pilar CREDA
+              </div>
+            </div>
+
+            <div class="row mt-5 align-items-baseline">
+              <div class="col-md-4 mb-3" style="color: white;">
+                <div class="d-flex align-items-center">
+                  <img src="~/img/logoUTFUTURE-mini.png" class="img-fluid">
+                </div>
+                <div class="text-list-pilar my-2">
+                  Pilar Pendidikan
+                </div>
+                <div class="text-detail-list-pilar">
+                  Program pendidikan terpadu bertujuan untuk mencetak generasi muda berbakat, potensial, dan mandiri.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3" style="color: white;">
+                <div class="d-flex align-items-center">
+                  <img src="~/img/logoUTCARE-mini.png" class="img-fluid">
+                </div>
+                <div class="text-list-pilar my-2">
+                  Pilar Kesehatan
+                </div>
+                <div class="text-detail-list-pilar">
+                  Program yang bertujuan untuk memberikan kemudahan akses layanan kesehatan bagi pemangku kepentingan.              </div>
+              </div>
+              <div class="col-md-4 mb-3" style="color: white;">
+                <div class="d-flex align-items-center">
+                  <img src="~/img/logoUTGROWTH-mini.png" class="img-fluid">
+                </div>
+                <div class="text-list-pilar my-2">
+                  Pilar Ekonomi
+                </div>
+                <div class="text-detail-list-pilar">
+                  Pemberdayaan masyarakat secara ekonomi berbasis usaha mikro dan menengah yang dapat menghasilkan tambahan pendapatan.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3" style="color: white;">
+                <div class="d-flex align-items-center">
+                  <img src="~/img/logoUTTREES-mini.png" class="img-fluid">
+                </div>
+                <div class="text-list-pilar my-2">
+                  Pilar Lingkungan
+                </div>
+                <div class="text-detail-list-pilar">
+                  Berisi kegiatan CSR berbasis reboisasi dan konservasi untuk meningkatkan kualitas lingkungan dan memberikan manfaat bagi masyarakat sekitar.              </div>
+              </div>
+              <div class="col-md-4 mb-3" style="color: white;">
+                <div class="d-flex align-items-center">
+                  <img src="~/img/logoUTACTION-mini.png" class="img-fluid">
+                </div>
+                <div class="text-list-pilar my-2">
+                  Pilar Tanggap Darurat
+                </div>
+                <div class="text-detail-list-pilar">
+                  Program dukungan untuk membantu masyarakat dalam menghadapi situasi darurat pasca bencana.              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="d-flex justify-content-center align-items-center" style="height: 105px; background-color: #000">
+      <div class="container">
+          <div class="row">
+              <div class="col text-center">
+                  <h5 class="text-light">
+                      © 2023 <span style="color: #FFCA0D;">United Tractors</span> all right reserved.
+                  </h5>
+              </div>
+          </div>
+      </div>
+    </footer>
+</body>
+</html>

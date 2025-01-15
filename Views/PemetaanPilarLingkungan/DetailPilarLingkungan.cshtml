@@ -1,0 +1,127 @@
+@model List<CREDA_App.Models.VW_M_IndikatorAllPilar>
+@{
+    ViewData["Title"] = "Detail Pilar Lingkungan";
+
+    var currentYear = DateTime.Now.Year;
+    var oneYearsAgo = DateTime.Now.AddYears(-1).Year;
+    var twoYearsAgo = DateTime.Now.AddYears(-2).Year;
+}
+
+<nav aria-label="breadcrumb m" class="mt-4" style="font-size: 14px;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-action="Beranda" asp-controller="Home">
+            <i class="fa-solid fa-house" style="color: #FFCA0D;"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item"><a asp-action="PilarLingkungan" asp-controller="PemetaanPilarLingkungan" asp-route-tahun_dokumen="@ViewBag.SelectedYear" asp-route-kode_cabang="@ViewBag.KodeCabang" style="color: #6C757D; text-decoration: none;">Pilar Lingkungan</a></li>
+    <li class="breadcrumb-item active" aria-current="page" style="color: #000;">Detail Lingkungan</li>
+  </ol>
+</nav>
+
+<form id="CanEditable" asp-action="DetailPilarLingkungan" asp-controller="PemetaanPilarLingkungan" asp-route-tahun_dokumen="@ViewBag.SelectedYear" asp-route-kode_cabang="@ViewBag.KodeCabang" method="post">
+<div class="row">
+    <div class="col-12">
+        <div class="form-label text-label-lg">
+            <span class="title-pilar border-bottom-custom mb-2">@Model.FirstOrDefault().kriteria</span>
+        </div>
+        <div class="card mb-3" style="border-radius: 8px !important;">
+            @* <input type="hidden" name="kode_cabang" value="@ViewBag.Kode_Cabang" />
+            <input type="hidden" name="tahun_dokumen" value="@ViewBag.SelectedYear" /> *@
+            <div class="card-body">
+                @for(var i = 0; i < Model.Count(); i++){
+                    <input id="TXTKodeKriteria" asp-for="@Model[i].kode_kriteria" type="hidden" value="@Model[i].kode_kriteria" />
+                    <input id="TXTNoIndikator" asp-for="@Model[i].no_indikator" type="hidden" value="@Model[i].no_indikator" />
+                    <input id="TXTIndikator" asp-for="@Model[i].indikator" type="hidden" value="@Model[i].indikator" />
+                    
+                    @if(@Model[i].no_indikator == 5 || @Model[i].no_indikator == 10 || @Model[i].no_indikator == 16 || @Model[i].no_indikator == 17 ||
+                                 @Model[i].no_indikator == 20 || @Model[i].no_indikator == 26 || @Model[i].no_indikator == 30 ||
+                                 //start - urutan indikator berubah
+                                 @Model[i].no_indikator == 101 || @Model[i].no_indikator == 104 || @Model[i].no_indikator == 108 || @Model[i].no_indikator == 112 || 
+                                 @Model[i].no_indikator == 116 || @Model[i].no_indikator == 119 || @Model[i].no_indikator == 123 || @Model[i].no_indikator == 124 || 
+                                 @Model[i].no_indikator == 127 || @Model[i].no_indikator == 131 || @Model[i].no_indikator == 137 || @Model[i].no_indikator == 138 || 
+                                 @Model[i].no_indikator == 143 || @Model[i].no_indikator == 144 || @Model[i].no_indikator == 148 || @Model[i].no_indikator == 152 || 
+                                 @Model[i].no_indikator == 153 || @Model[i].no_indikator == 154 || @Model[i].no_indikator == 155 || @Model[i].no_indikator == 156 || 
+                                 @Model[i].no_indikator == 161 || @Model[i].no_indikator == 166 || @Model[i].no_indikator == 167 || @Model[i].no_indikator == 168 || 
+                                 @Model[i].no_indikator == 169 || @Model[i].no_indikator == 170 || @Model[i].no_indikator == 171 || @Model[i].no_indikator == 176 || 
+                                 @Model[i].no_indikator == 180 || @Model[i].no_indikator == 180 || @Model[i].no_indikator == 184 || @Model[i].no_indikator == 188 || 
+                                 @Model[i].no_indikator == 192 || @Model[i].no_indikator == 196 || @Model[i].no_indikator == 200
+                    ){
+                    <div class="row mb-3">
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-label-md mb-2">
+                            <label class="fw-bold form-label">@Model[i].indikator</label>
+                            <input type="text" asp-for="@Model[i].DTO_isian" id="isian_@Model[i].no_indikator" value="@Model[i].DTO_isian" class="form-control" disabled>
+                            <input type="hidden" asp-for="@Model[i].DTO_isian" id="hide_isian_@Model[i].no_indikator" value="@Model[i].DTO_isian" />
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-label-md mb-2">    
+                            <label class="fw-bold form-label">Tahun</label>
+                            <input type="text" asp-for="@Model[i].DTO_tahun_data" id="tahun_@Model[i].no_indikator" value="@Model[i].DTO_tahun_data" class="form-control" disabled>
+                            <input type="hidden" asp-for="@Model[i].DTO_tahun_data" id="hide_tahun_@Model[i].no_indikator" value=@Model[i].DTO_tahun_data />
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-label-md">
+                            <label class="fw-bold form-label">Sumber Data</label>
+                            <input type="text" asp-for="@Model[i].DTO_sumber_data" id="sumber_@Model[i].no_indikator"  value="@Model[i].DTO_sumber_data" class="form-control" disabled>
+                            <input type="hidden" asp-for="@Model[i].DTO_sumber_data" id="hide_sumber_@Model[i].no_indikator" value="@Model[i].DTO_sumber_data" />
+                        </div>
+                    </div>
+                    }
+                    else {
+                    <div class="row mb-3">
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-label-md mb-2">
+                            <label class="fw-bold form-label">@Model[i].indikator</label>
+                            <input type="text" asp-for="@Model[i].DTO_isian" id="isian_@Model[i].no_indikator" class="form-control" placeholder="Input Jumlah" oninput="validateFloatInput(this, 'error-message-@Model[i].indikator')">
+                            <div id="error-message-@Model[i].indikator" class="text-danger text-label-md"></div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-label-md mb-2">
+                            <div class="form-group">
+                                <label class="fw-bold form-label">Tahun</label>
+                                <select id="tahun_@Model[i].no_indikator" asp-for="@Model[i].DTO_tahun_data" class="form-control form-select" aria-label=".form-select-sm example" oninput="validateSelectorInput(this, 'error-message-select1-@Model[i].indikator')">
+                                    <option disabled selected value="">--Pilih Tahun--</option>
+                                    <option value=@currentYear>@currentYear</option>
+                                    <option value=@oneYearsAgo>@oneYearsAgo</option>
+                                    <option value=@twoYearsAgo>@twoYearsAgo</option>
+                                </select>
+                                <div id="error-message-select1-@Model[i].indikator" class="text-danger text-label-md"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-label-md">
+                            <label class="fw-bold form-label">Sumber Data</label>
+                            <select id="sumber_@Model[i].no_indikator" asp-for="@Model[i].DTO_sumber_data" class="form-control form-select" aria-label=".form-select-sm example" oninput="validateSelectorInput(this, 'error-message-select2-@Model[i].indikator')">
+                            <option selected disabled value="">--Pilih Sumber Data--</option>
+                            <option value="Desa">Primer - Desa</option>
+                            <option value="Observer">Sekunder - Observer</option>
+                            <option value="Lainnya">Lainnya</option>
+                            </select>
+                            <div id="error-message-select2-@Model[i].indikator" class="text-danger text-label-md"></div>
+                        </div>
+                    </div>
+                    }
+                }
+                <div class="modal-footer">
+                    <button type="submit" href="javascript:;" class="btn-warning-custom" style="background-color: #FFCA0D;">
+                        Simpan <i class="fa-solid fa-floppy-disk"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const canEdit = @Json.Serialize(ViewBag.CanEdit);
+        const message = "@ViewBag.EditMessage";
+
+        if (!canEdit) {
+            disableForm(message);
+        }
+    });
+
+    function disableForm(message) {
+        const inputs = document.querySelectorAll("#CanEditable input, #CanEditable select, #CanEditable button");
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
+    }
+</script>

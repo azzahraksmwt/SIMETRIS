@@ -1,0 +1,98 @@
+@model CREDA_App.Models.User_Management
+
+@{
+    var userManagementList = ViewBag.UserManagementList as List<CREDA_App.Models.User_Management>;
+}
+
+@{
+    Layout = null;
+}
+
+<form asp-action="UserManagementAddOrEdit" asp-route-id="@Model.id" enctype="multipart/form-data">
+    <div class="form-group margin-top-md">
+        <label>ID Karyawan</label>
+        <input type="text" asp-for="id_karyawan" class="form-control mt-2">
+    </div>
+
+    <div class="form-group mt-3">
+        <label>Kode Cabang</label>
+        <input type="text" asp-for="kode_cabang" class="form-control mt-2">
+    </div>
+
+    <div class="form-group mt-3">
+        <label>Nama Karyawan</label>
+        <input type="text" asp-for="nama_karyawan" class="form-control mt-2">
+    </div>
+
+    <div class="form-group mt-3">
+        <label>Email</label>
+        <input type="text" asp-for="email" class="form-control mt-2">
+    </div>
+
+    <div class="form-group mt-3">
+        <label>Password</label>
+        <input type="text" asp-for="password" class="form-control mt-2">
+    </div>
+
+    <div class="form-group mt-3">
+        <label>Jenis Kelamin</label>
+        <div class="d-flex gap-4 mt-2">
+            <div>
+                <input asp-for="jenis_kelamin" name="jenis_kelamin" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioLakilaki" value="Laki-laki">
+                <label class="form-check-label ms-2 ms-2" for="flexRadioLakilaki">
+                    Laki-laki
+                </label>
+            </div>
+            <div>
+                <input asp-for="jenis_kelamin" name="jenis_kelamin" class="form-check-input" style="margin-left: 0px;" type="radio" id="flexRadioPerempuan" value="Perempuan">
+                <label class="form-check-label ms-2 ms-2" for="flexRadioPerempuan">
+                    Perempuan
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        <label>Alamat</label>
+        <input type="text" asp-for="alamat" class="form-control mt-2">
+    </div>
+
+    <div class="form-group mt-3">
+        <label>No Telepon</label>
+        <input type="text" asp-for="no_telepon" class="form-control mt-2">
+    </div>
+
+    <div class="form-group mt-3">
+        <label>Status</label>
+        <div class="form-check mt-2" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+            <select class="form-select" asp-for="status">
+                <option value="" disabled selected>Pilih...</option>
+                <option value="Aktif">Aktif</option>
+                <option value="Tidak Aktif">Tidak Aktif</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        <label>Role</label>
+        <div class="form-check mt-2" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+            <select class="form-select" asp-for="role">
+                <option value="" disabled selected>Pilih...</option>
+                <option value="Admin">Admin</option>
+                <option value="CSR Local">CSR Local</option>
+                <option value="CSR HO">CSR HO</option>
+                <option value="BM/SM">BM/SM</option>
+                <option value="ESRO Leader">ESRO Leader</option>
+                <option value="Dept Head CSR">Dept Head CSR</option>
+                <option value="Div Head CSR">Div Head CSR</option>
+            </select>
+        </div>
+    </div>
+
+    <input asp-for="created_at" id="created_at" name="created_at" type="datetime-local" hidden>
+
+    <div class="modal-footer mt-3">
+        <button type="button" class="btn-batalkan ms-2" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Batalkan </button>
+        <button type="submit" class="btn-warning-custom ms-2" style="background-color: #FFCA0D;">Simpan <i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+</form>

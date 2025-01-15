@@ -1,0 +1,365 @@
+@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Daftar Pemetaan Sosial";
+}
+
+<div class="row px-3">
+    <div class="d-flex flex-row py-4 px-0 justify-content-between">
+        <div class="title-renja">
+            Daftar Pemetaan Sosial
+        </div>
+        @if (User.HasClaim(x => x.Value == "CSR Local" || x.Value == "CSR HO")){
+            <a onclick="showModalTambahDokumen('@Url.Action("TambahDokumen", "MenuPemetaanSosialController", null, Context.Request.Scheme)', 'Tambah Dokumen')"
+                class="btn-warning-custom btn-sm ms-auto p-2" type="button" style="font-weight: 400;">
+                <div class="d-flex flex-row">
+                    <div class="card d-flex justify-content-center align-items-center"
+                        style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                        <i class="fa-solid fa-plus" style="color: #FFCA0D;"></i>
+                    </div>
+                    <div class="ms-2">
+                        <div class="mt-2 d-flex align-items-center">
+                            Tambah Dokumen
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+
+    </div>
+
+@if (User.HasClaim(x => x.Value == "Dept Head CSR"))
+{
+    <ul class="nav nav-tabs nav-pills d-flex flex-row justify-content-start gap-3" style="border-bottom: none;" id="csrTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link-custom active" id="CabangCMO-tab" data-bs-toggle="tab" data-bs-target="#CabangCMO" type="button" role="tab" aria-controls="CabangCMO" aria-selected="true" onclick="setActiveTab('CabangCMO')">
+                Cabang CMO
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link-custom" id="SeluruhCabang-tab" data-bs-toggle="tab" data-bs-target="#SeluruhCabang" type="button" role="tab" aria-controls="SeluruhCabang" aria-selected="false" onclick="setActiveTab('SeluruhCabang')">
+                Seluruh Cabang
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="csrTabContent" style="padding-left: 0px; padding-right: 0px;">
+        <!-- Tab Cabang CMO -->
+        <div class="tab-pane fade show active" id="CabangCMO" role="tabpanel" aria-labelledby="CabangCMO-tab">
+            <div class="mt-3">
+                <div class="card px-4" style="border-radius: 8px;">
+                    <div class="title-pilar px-0 mt-3 mb-3" style="border-bottom: 4px solid #ffca0d; display: inline-block; padding-bottom: 5px; width: fit-content;">
+                        Tahun Dokumen
+                    </div>
+                    @* <partial name="~/Views/Partials/CabangCMOPartial.cshtml"/> *@
+                    @await Html.PartialAsync("CabangCMOPartial", Model)
+                    @* @foreach (var data in Model.GroupBy(x => x.tahun_dokumen).OrderByDescending(g => g.Key))
+                    {
+                        var first = data.First();
+                        <div class="card mb-3" style="border-radius: 8px;">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="title-pilar">@first.tahun_dokumen</div>
+                                    @if (first.status_disetujui != "Draft")
+                                    {
+                                        <a onclick="showModalStatusDokumen('@Url.Action("StatusDokumen", "MenuPemetaanSosialController", null, Context.Request.Scheme)', 'Status Dokumen', '@first.id', '@first.tahun_dokumen')"
+                                           class="btn ms-auto me-2 p-2" type="button" style="font-weight: 400; text-decoration: none; border-color: #ffca0d;">
+                                           <div class="d-flex flex-row">
+                                               <div class="card d-flex justify-content-center align-items-center"
+                                                    style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                                   <i class="fa-solid fa-folder-open" style="color: #FFCA0D;"></i>
+                                               </div>
+                                               <div class="ms-2">
+                                                   <div class="mt-2 d-flex align-items-center text-masterdata">
+                                                       Status Dokumen
+                                                   </div>
+                                               </div>
+                                           </div>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a onclick="return false;" class="btn ms-auto me-2 p-2 disabled" type="button" style="font-weight: 400; text-decoration: none; border-color: #ffca0d;">
+                                           <div class="d-flex flex-row">
+                                               <div class="card d-flex justify-content-center align-items-center"
+                                                    style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                                   <i class="fa-solid fa-folder-open" style="color: #FFCA0D;"></i>
+                                               </div>
+                                               <div class="ms-2">
+                                                   <div class="mt-2 d-flex align-items-center text-masterdata">
+                                                       Status Dokumen
+                                                   </div>
+                                               </div>
+                                           </div>
+                                        </a>
+                                    }
+
+                                    <a asp-action="MonografiWilayah" asp-controller="PemetaanPilarMonografiWilayah" asp-route-kode_cabang="@ViewBag.KodeCabang" asp-route-tahun_dokumen="@first.tahun_dokumen"
+                                       class="btn p-2" type="button" style="font-weight: 400; text-decoration: none; background-color: #ffca0d;">
+                                       <div class="d-flex flex-row">
+                                           <div class="card d-flex justify-content-center align-items-center"
+                                                style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                               <i class="fa-solid fa-pen-to-square" style="color: #FFCA0D;"></i>
+                                           </div>
+                                           <div class="ms-2">
+                                               <div class="mt-2 d-flex align-items-center text-masterdata">
+                                                   Lihat Detail
+                                               </div>
+                                           </div>
+                                       </div>
+                                    </a>
+                                </div>
+                                @if (first.status_verifikasi != null)
+                                {
+                                    <div class="title-pilar" style="color: @(first.status_verifikasi == "Dokumen Telah Diverifikasi" ? "#13CE66" : "#F8183E");">
+                                        @first.status_verifikasi
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    } *@
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Seluruh Cabang -->
+        <div class="tab-pane fade" id="SeluruhCabang" role="tabpanel" aria-labelledby="SeluruhCabang-tab">
+            <div class="mt-3">
+                <div class="card px-4" style="border-radius: 8px;">
+                    <div class="title-pilar px-0 mt-3 mb-3" style="border-bottom: 4px solid #ffca0d; display: inline-block; padding-bottom: 5px; width: fit-content;">
+                        Tahun Dokumen
+                    </div>
+                    @* <partial name="~/Views/Partials/SeluruhCabangPartial.cshtml"/> *@
+                    @await Html.PartialAsync("SeluruhCabangPartial", Model)
+                    @* @if(Model != null) {
+                        foreach (var data in Model)
+                        {
+                            <div class="card mb-3" style="border-radius: 8px;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="title-pilar">@data.tahun_dokumen</div>
+                                        <a asp-action="DaftarSemuaCabang" asp-controller="MenuPemetaanSosial" asp-route-tahun_dokumen="@data.tahun_dokumen"
+                                        class="btn p-2" type="button" style="font-weight: 400; text-decoration: none; background-color: #ffca0d;">
+                                        <div class="d-flex flex-row">
+                                            <div class="card d-flex justify-content-center align-items-center"
+                                                    style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                                <i class="fa-solid fa-pen-to-square" style="color: #FFCA0D;"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="mt-2 d-flex align-items-center text-masterdata">
+                                                    Lihat Detail
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    @if (data.status_verifikasi != null)
+                                    {
+                                        <div class="title-pilar" style="color: @(data.status_verifikasi == "Dokumen Telah Diverifikasi" ? "#13CE66" : "#F8183E");">
+                                            @data.status_verifikasi
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    } *@
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else{
+    <div class="card px-4" style="border-radius: 8px;">
+        <div class="title-pilar px-0 mt-3 mb-3" style="border-bottom: 4px solid #ffca0d; display: inline-block; padding-bottom: 5px; width: fit-content;">
+            Tahun Dokumen
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" 
+            style="display: @(TempData["ErrorMessage"] != null ? "block" : "none");">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var data = Model.ElementAt(i);	
+            <div class="col-12">
+                <div class="card mb-3" style="border-radius: 8px;">
+                    <div class="card-body">
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="d-flex align-items-center title-pilar">
+                                @data.tahun_dokumen
+                            </div>	
+                            @if (User.HasClaim(x => x.Value == "CSR Local" || x.Value == "CSR HO" || x.Value == "BM/SM")){
+                                @if (data.status_disetujui != "Draft")
+                                {
+                                    <a onclick="showModalStatusDokumen('@Url.Action("StatusDokumen", "MenuPemetaanSosialController", null, Context.Request.Scheme)', 'Status Dokumen', '@data.id', '@data.tahun_dokumen')"
+                                        class="btn ms-auto me-2 p-2" type="button" style="font-weight: 400; text-decoration: none; border-color: #ffca0d;">
+                                        <div class="d-flex flex-row">
+                                            <div class="card d-flex justify-content-center align-items-center"
+                                                style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                                <i class="fa-solid fa-folder-open" style="color: #FFCA0D;"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="mt-2 d-flex align-items-center text-masterdata">
+                                                    Status Dokumen
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                } else {
+                                    <a onclick="return false;"
+                                        class="btn ms-auto me-2 p-2 disabled" type="button" style="font-weight: 400; text-decoration: none; border-color: #ffca0d;">
+                                        <div class="d-flex flex-row">
+                                            <div class="card d-flex justify-content-center align-items-center"
+                                                style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                                <i class="fa-solid fa-folder-open" style="color: #FFCA0D;"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="mt-2 d-flex align-items-center text-masterdata">
+                                                    Status Dokumen
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                }
+                            }
+                            @if (User.HasClaim(x => x.Value == "CSR Local" || x.Value == "CSR HO" || x.Value == "BM/SM")) {
+                            <a asp-action="MonografiWilayah" asp-controller="PemetaanPilarMonografiWilayah" asp-route-kode_cabang = "@data.kode_cabang" asp-route-tahun_dokumen="@data.tahun_dokumen"
+                                class="btn p-2" type="button" style="font-weight: 400; text-decoration: none; background-color: #ffca0d;">
+                                <div class="d-flex flex-row">
+                                    <div class="card d-flex justify-content-center align-items-center"
+                                        style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                        <i class="fa-solid fa-pen-to-square" style="color: #FFCA0D;"></i>
+                                    </div>
+                                    <div class="ms-2">
+                                        <div class="mt-2 d-flex align-items-center text-masterdata">
+                                            Lihat Detail
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            } else{
+                                <a asp-action="DaftarSemuaCabang" asp-controller="MenuPemetaanSosial" asp-route-tahun_dokumen="@data.tahun_dokumen"
+                                    class="btn p-2" type="button" style="font-weight: 400; text-decoration: none; background-color: #ffca0d;">
+                                    <div class="d-flex flex-row">
+                                        <div class="card d-flex justify-content-center align-items-center"
+                                            style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                            <i class="fa-solid fa-pen-to-square" style="color: #FFCA0D;"></i>
+                                        </div>
+                                        <div class="ms-2">
+                                            <div class="mt-2 d-flex align-items-center text-masterdata">
+                                                Lihat Detail
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            }
+                        </div>
+                        @if (data.status_verifikasi != null) {
+                            @if (data.status_verifikasi == "Dokumen Telah Diverifikasi") {
+                                <div class="title-pilar" style="color: #13CE66;">@data.status_verifikasi</div>
+                            } else {
+                                <div class="title-pilar" style="color: #F8183E;">@data.status_verifikasi</div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+</div>
+
+
+<!-- Modal Tambah Dokumen -->
+<div class="modal fade" id="modaltambahdokumen" tabindex="-1" aria-labelledby="modaltambahdokumen" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #000000;">
+        <h5 class="modal-title" style="color: #FFCA0D; font-weight: 600;"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFCA0D; opacity: 5;"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Status Dokumen -->
+<div class="modal fade" id="modalstatusdokumen" tabindex="-1" aria-labelledby="modalstatusdokumen" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #000000;">
+        <h5 class="modal-title" style="color: #FFCA0D; font-weight: 600;"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFCA0D; opacity: 5;"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+@* Tambah Dokumen *@
+<script>
+	function showModalTambahDokumen (url, title) {
+		console.log("Cek_"+title)
+		@* return false; *@
+		$.ajax({
+			type: "GET",
+			url: '/MenuPemetaanSosial/TambahDokumen/',
+			success: function (response) {
+				$("#modaltambahdokumen .modal-body").html(response);
+				$("#modaltambahdokumen .modal-title").html(title);
+				$("#modaltambahdokumen").modal('show');
+			},
+			error: function (error) {
+				alert('Maaf, terjadi kesalahan sistem.');
+			}
+		});
+
+	}
+</script>
+
+@* Status Dokumen *@
+<script>
+	function showModalStatusDokumen (url, title, id, tahunDokumen) {
+		console.log("Cek_" + title + " id_" + id + "tahunDokumen_" + tahunDokumen);
+		@* return false; *@
+		$.ajax({
+			type: "GET",
+			url: '/MenuPemetaanSosial/StatusDokumen/' + '?id=' + id + '&tahunDokumen=' + tahunDokumen,
+			success: function (response) {
+				$("#modalstatusdokumen .modal-body").html(response);
+				$("#modalstatusdokumen .modal-title").html(title);
+				$("#modalstatusdokumen").modal('show');
+			},
+			error: function (error) {
+				alert('Maaf, terjadi kesalahan sistem.');
+			}
+		});
+
+	}
+</script>
+
+@* Tab Active *@
+<script>
+    function setActiveTab(tabId) {
+        console.log('Tab yang dikirim: ' + tabId);
+        $.ajax({
+            url: '@Url.Action("DaftarPemetaanSosial", "MenuPemetaanSosial")',
+            method: 'GET',
+            data: { tab: tabId },
+            success: function(response) {
+                console.log('Response diterima');
+                @* $('#'+tabId).html(response); *@
+
+                var newContent = $(response).find('#'+tabId); 
+                console.log('Content: ' + newContent.html());
+                $('#'+tabId).html(newContent.html()); 
+            }
+        });
+    }
+
+    @* $(document).ready(function () {
+        setActiveTab('CabangCMO')
+    }); *@
+</script>

@@ -1,0 +1,67 @@
+@model IEnumerable<dynamic>
+    
+@foreach (var data in Model.GroupBy(x => x.tahun_dokumen).OrderByDescending(g => g.Key))
+{
+    var first = data.First();
+    <div class="card mb-3" style="border-radius: 8px;">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="title-pilar">@first.tahun_dokumen</div>
+                @if (first.status_disetujui != "Draft")
+                {
+                    <a onclick="showModalStatusDokumen('@Url.Action("StatusDokumen", "MenuPemetaanSosialController", null, Context.Request.Scheme)', 'Status Dokumen', '@first.id', '@first.tahun_dokumen')"
+                        class="btn ms-auto me-2 p-2" type="button" style="font-weight: 400; text-decoration: none; border-color: #ffca0d;">
+                        <div class="d-flex flex-row">
+                            <div class="card d-flex justify-content-center align-items-center"
+                                style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                <i class="fa-solid fa-folder-open" style="color: #FFCA0D;"></i>
+                            </div>
+                            <div class="ms-2">
+                                <div class="mt-2 d-flex align-items-center text-masterdata">
+                                    Status Dokumen
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <a onclick="return false;" class="btn ms-auto me-2 p-2 disabled" type="button" style="font-weight: 400; text-decoration: none; border-color: #ffca0d;">
+                        <div class="d-flex flex-row">
+                            <div class="card d-flex justify-content-center align-items-center"
+                                style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                                <i class="fa-solid fa-folder-open" style="color: #FFCA0D;"></i>
+                            </div>
+                            <div class="ms-2">
+                                <div class="mt-2 d-flex align-items-center text-masterdata">
+                                    Status Dokumen
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                }
+
+                <a asp-action="MonografiWilayah" asp-controller="PemetaanPilarMonografiWilayah" asp-route-kode_cabang="@ViewBag.KodeCabang" asp-route-tahun_dokumen="@first.tahun_dokumen"
+                    class="btn p-2" type="button" style="font-weight: 400; text-decoration: none; background-color: #ffca0d;">
+                    <div class="d-flex flex-row">
+                        <div class="card d-flex justify-content-center align-items-center"
+                            style="background-color: #FFF9E5; border-color: transparent; width: 32px; height: 32px;">
+                            <i class="fa-solid fa-pen-to-square" style="color: #FFCA0D;"></i>
+                        </div>
+                        <div class="ms-2">
+                            <div class="mt-2 d-flex align-items-center text-masterdata">
+                                Lihat Detail
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            @if (first.status_verifikasi != null)
+            {
+                <div class="title-pilar" style="color: @(first.status_verifikasi == "Dokumen Telah Diverifikasi" ? "#13CE66" : "#F8183E");">
+                    @first.status_verifikasi
+                </div>
+            }
+        </div>
+    </div>
+}

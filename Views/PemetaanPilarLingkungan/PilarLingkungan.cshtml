@@ -1,0 +1,70 @@
+@using CREDA_App.Models
+@model List<VW_CTR_KriteriaLingkungan>
+@{
+    ViewData["Title"] = "Pilar Lingkungan";
+}
+
+<partial name="~/Views/Partials/SocialMapping.cshtml"/> 
+
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card" style="border-radius: 8px;">
+            <div class="card-body">
+                <div class="row">
+                    @foreach(var item in ViewBag.LingkunganData)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-2 mt-2" style="font-size: 14px;">
+                            <a asp-controller="PemetaanPilarLingkungan" asp-action="DetailPilarLingkungan" asp-route-kriteria="@item.KodeKriteria" 
+                            asp-route-kode_cabang="@ViewBag.Kode_Cabang" asp-route-tahun_dokumen="@ViewBag.SelectedYear" class="card" style="text-decoration: none; color: #17181A;">
+                                <div class="col-12 d-flex">
+                                    <div class="col-auto pt-4 ps-4 pb-4">
+                                        <img src="~/img/icon-email.svg" style="width: 64px;">
+                                    </div>
+                                    <div class="col p-3">
+                                        <text class="d-block mb-2">Lingkungan</text>
+                                        <p class="fw-bold d-block">@item.Kriteria</p>
+                                        <div class="d-flex gap-2 align-items-center event">
+                                            <div class="col-10">
+                                                <div class="progress-custom"></div>
+                                                <div class="progress-done1" id="progressBar">
+                                                    <div class="progress-done2" id="progressIcon"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 progress-value">
+                                                @item.TotalIsian/@item.TotalKriteria
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function () {
+    $(".progress-value").each(function () {
+        var value = $(this).text().split("/");
+        var current = parseInt(value[0]);
+        var total = parseInt(value[1]);
+        var percentage = (current / total) * 100;
+
+        var progressBar = $(this).closest('.event').find("#progressBar");
+        var progressIcon = $(this).closest('.event').find("#progressIcon");
+
+        progressBar.css({
+            width: percentage + "%"
+        });
+
+        progressIcon.css({
+            right: `-${10 - percentage}%`
+        });
+    });
+});
+</script>
+
+

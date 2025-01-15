@@ -1,0 +1,100 @@
+@model List<CREDA_App.Models.M_MonografiDesa>
+@{
+    ViewData["Title"] = "Sarana dan Prasarana - Monografi Wilayah";
+    string currentMonografi = null;
+}
+
+<div class="row mt-3">
+    <div class="col-12">
+		<div class="card" style="border-radius: 8px;">
+			<div class="card-body card-formpemetaan flex-column mb-3">
+                <div class="row">
+                    @for(var i = 0; i < Model.Count(); i++){
+                        <input id="TXTKodeKategori" asp-for="@Model[i].kode_kategori" type="hidden" value="@Model[i].kode_kategori" />
+                        <input id="TXTKodeKategori" asp-for="@Model[i].kategori" type="hidden" value="@Model[i].kategori" />
+                        @if (Model[i].kode_monografi == "J" || Model[i].kode_monografi == "K" || Model[i].kode_monografi == "L" || Model[i].kode_monografi == "M" || Model[i].kode_monografi == "N" || Model[i].kode_monografi == "O")
+                        {
+                            @if (Model[i].kode_monografi != currentMonografi)
+                            {
+                                currentMonografi = Model[i].kode_monografi;
+                                <div class="row mt-3">		
+                                    <div class="title-pilar px-0" style="border-bottom: 4px solid #ffca0d; display: inline-block; padding-bottom: 5px; width: fit-content; margin-left: 10px;">
+                                        @Model[i].monografi
+                                    </div>
+                                </div>
+                            }
+                        }
+                        @if(@Model[i].kode_monografi == "J"){
+                            <div class="col-3 mt-2 flex-column">
+                                <div class="d-flex standar-pilar">
+                                    @Model[i].kategori
+                                </div>
+                                <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                    <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                        <input asp-for="@Model[i].DTO_isian" class="form-control rounded" type="text" placeholder="Input Jumlah..." style="font-size: 14px;">
+                                    </div>
+                                </div>
+                            </div>
+                        }else if(@Model[i].kode_monografi == "K"){
+                            <div class="col-3 mt-2 flex-column">
+                                <div class="d-flex standar-pilar">
+                                    @Model[i].kategori
+                                </div>
+                                <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                    <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                        <input asp-for="@Model[i].DTO_isian" class="form-control rounded" type="text" placeholder="Input Jumlah..." style="font-size: 14px;">
+                                    </div>
+                                </div>
+                            </div>
+                        }else if(@Model[i].kode_monografi == "L"){
+                            <div class="col-3 mt-2 flex-column">
+                                <div class="d-flex standar-pilar">
+                                    @Model[i].kategori
+                                </div>
+                                <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                    <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                        <input asp-for="@Model[i].DTO_isian" class="form-control rounded" type="text" placeholder="Input Jumlah..." style="font-size: 14px;">
+                                    </div>
+                                </div>
+                            </div>
+                        }else if(@Model[i].kode_monografi == "M"){
+                            <div class="col-3 mt-2 flex-column">
+                                <div class="d-flex standar-pilar">
+                                    @Model[i].kategori
+                                </div>
+                                <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                    <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                        <input asp-for="@Model[i].DTO_isian" class="form-control rounded" type="text" placeholder="Input Jumlah..." style="font-size: 14px;">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else if(@Model[i].kode_monografi == "N"){
+                            <div class="col-3 mt-2 flex-column">
+                                <div class="d-flex standar-pilar">
+                                    @Model[i].kategori
+                                </div>
+                                <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                    <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                        <input asp-for="@Model[i].DTO_isian" class="form-control rounded" type="text" placeholder="Input Jumlah..." style="font-size: 14px;">
+                                    </div>
+                                </div>
+                            </div>
+                        }else if(@Model[i].kode_monografi == "O"){
+                            <div class="col-3 mt-2 flex-column">
+                                <div class="d-flex standar-pilar">
+                                    @Model[i].kategori
+                                </div>
+                                <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                    <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                        <input asp-for="@Model[i].DTO_isian" class="form-control rounded" type="text" placeholder="Input Jumlah..." style="font-size: 14px;">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+			</div>
+		</div>
+	</div>
+</div>

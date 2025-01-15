@@ -1,0 +1,443 @@
+@{
+    ViewData["Title"] = "Tambah Rencana Kerja";
+}
+
+<nav aria-label="breadcrumb m" class="mt-4" style="font-size: 14px;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-action="Beranda" asp-controller="Home">
+            <i class="fa-solid fa-house" style="color: #FFCA0D;"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item"><a asp-action="RenjaPendidikan" asp-controller="RencanaKerjaPendidikan" style="color: #6C757D; text-decoration: none;"> Detail Rencana Kerja Tahunan</a></li>
+    <li class="breadcrumb-item active" aria-current="page" style="color: #000;">Buat Rencana Kerja</li>
+  </ol>
+</nav>
+
+<div class="col-12 mt-2">
+	<div class="card mb-3" style="border-radius: 8px;">
+		<div class="card-body card-formpemetaanpilar" style="height: auto;">
+			<div class="row">
+                <div class="title-pilar px-0" style="border-bottom: 4px solid #ffca0d; display: inline-block; padding-bottom: 5px; width: fit-content; margin-left: 10px;">
+                    Informasi Rencana Kerja
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Nama Program Kerja
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" value="PENDIDIKAN" style="font-size: 14px; background-color: #e9e9ef;" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-6 col-sm-4 mt-3 flex-column">
+                    <div class="d-flex standar-pilar">
+                        Unit Kerja <span style="color: red;"> *</span>
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <select class="form-select">
+                                <option value="" disabled selected>Pilih...</option>
+                                <option value="1">Opsi 1</option>
+                                <option value="2">Opsi 2</option>
+                                <option value="3">Opsi 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-6 col-sm-4 mt-3 flex-column">
+                    <div class="d-flex standar-pilar">
+                        Champions Program <span style="color: red;"> *</span>
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <select class="form-select">
+                                <option value="" disabled selected>Pilih...</option>
+                                <option value="1">Opsi 1</option>
+                                <option value="2">Opsi 2</option>
+                                <option value="3">Opsi 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-6 col-sm-4 mt-3 flex-column">
+                    <div class="d-flex standar-pilar">
+                            PIC Program Kerja <span style="color: red;"> *</span>
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" placeholder="Input Nama..." style="font-size: 14px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-6 col-sm-4 mt-3 flex-column">
+                    <div class="d-flex standar-pilar">
+                        Estimasi Budget <span style="color: red;"> *</span>
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" placeholder="Input Estimasi..." style="font-size: 14px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Nama Kegiatan <span style="color: red;"> *</span>
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" placeholder="Input..." style="font-size: 14px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Deskripsi Rencana Kerja <span style="color: red;"> *</span>
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" placeholder="Input..." style="font-size: 14px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Tujuan
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" placeholder="Input..." style="font-size: 14px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Sasaran
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" placeholder="Input..." style="font-size: 14px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="title-pilar px-0" style="border-bottom: 4px solid #ffca0d; display: inline-block; padding-bottom: 5px; width: fit-content; margin-left: 10px;">
+                    Informasi Ruang Lingkup
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Metode Pelaksanaan
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" placeholder="Input..." style="font-size: 14px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Kolaborasi Internal
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" placeholder="Input..." style="font-size: 14px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Kolaborasi Eksternal
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" placeholder="Input..." style="font-size: 14px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Target Produk
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <input class="form-control rounded" type="text" placeholder="Input..." style="font-size: 14px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        <span class="align-self-center">KPI Program Kerja</span>
+                        <button onclick="showModalKPIProgram('@Url.Action("KPIProgramAddOrEdit", "RencanaKerjaPendidikan", null, Context.Request.Scheme)')"
+                            class="btn-warning-custom btn-sm ms-auto p-2">
+                            <i class="fa-solid fa-plus"></i>  Tambah
+                        </button>
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="row gx-3">
+                            <div class="table-responsive">
+                                <div class="border table-masterdata">
+                                    <table id="dataTableDaftarArea" class="table align-middle table-hover m-0">
+                                        <thead class="text-title-tabel">
+                                            <tr>
+                                                <th class="tabel-th">Nama KPI</th>
+                                                <th class="tabel-th">Satuan</th>
+                                                <th class="tabel-th">Jumlah KPI</th>
+                                                <th class="tabel-th">RPJM</th>
+                                                <th class="tabel-th"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-tabel">
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>						
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        SGDs
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <select id="multipleSelect" multiple name="native-select" placeholder="Pilih..." data-search="true" data-silent-initial-value-set="true">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Referensi SDSI
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <select id="multipleSelect" multiple name="native-select" placeholder="Pilih..." data-search="true" data-silent-initial-value-set="true">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Referensi Peraturan
+                    </div>
+                    <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                        <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                            <select id="multipleSelect" multiple name="native-select" placeholder="Pilih..." data-search="true" data-silent-initial-value-set="true">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="title-pilar px-0" style="border-bottom: 4px solid #ffca0d; display: inline-block; padding-bottom: 5px; width: fit-content; margin-left: 10px;">
+                    Linimasa Kegiatan
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Tahap Perencanaan
+                    </div>
+                    <div class="card-body card-formpemetaan d-flex px-0 py-0 mt-2">
+                        <div class="col-3 flex-column me-3">
+                            <div class="d-flex standar-pilar" style="font-weight: 400;">
+                                From Date <span style="color: red;"> *</span>
+                            </div>
+                            <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                    <input class="form-control rounded" type="date" style="font-size: 14px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 flex-column">
+                            <div class="d-flex standar-pilar" style="font-weight: 400;">
+                                To Date <span style="color: red;"> *</span>
+                            </div>
+                            <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                    <input class="form-control rounded" type="date" style="font-size: 14px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Tahap Implementasi
+                    </div>
+                    <div class="card-body card-formpemetaan d-flex px-0 py-0 mt-2">
+                        <div class="col-3 flex-column me-3">
+                            <div class="d-flex standar-pilar" style="font-weight: 400;">
+                                From Date <span style="color: red;"> *</span>
+                            </div>
+                            <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                    <input class="form-control rounded" type="date" style="font-size: 14px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 flex-column">
+                            <div class="d-flex standar-pilar" style="font-weight: 400;">
+                                To Date <span style="color: red;"> *</span>
+                            </div>
+                            <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                    <input class="form-control rounded" type="date" style="font-size: 14px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Tahap Monitoring
+                    </div>
+                    <div class="card-body card-formpemetaan d-flex px-0 py-0 mt-2">
+                        <div class="col-3 flex-column me-3">
+                            <div class="d-flex standar-pilar" style="font-weight: 400;">
+                                From Date <span style="color: red;"> *</span>
+                            </div>
+                            <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                    <input class="form-control rounded" type="date" style="font-size: 14px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 flex-column">
+                            <div class="d-flex standar-pilar" style="font-weight: 400;">
+                                To Date <span style="color: red;"> *</span>
+                            </div>
+                            <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                    <input class="form-control rounded" type="date" style="font-size: 14px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-column">
+                    <div class="d-flex standar-pilar">
+                        Tahap Review
+                    </div>
+                    <div class="card-body card-formpemetaan d-flex px-0 py-0 mt-2">
+                        <div class="col-3 flex-column me-3">
+                            <div class="d-flex standar-pilar" style="font-weight: 400;">
+                                From Date <span style="color: red;"> *</span>
+                            </div>
+                            <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                    <input class="form-control rounded" type="date" style="font-size: 14px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 flex-column">
+                            <div class="d-flex standar-pilar" style="font-weight: 400;">
+                                To Date <span style="color: red;"> *</span>
+                            </div>
+                            <div class="card-body card-formpemetaan px-0 py-0 mt-2">
+                                <div class="form-check" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+                                    <input class="form-control rounded" type="date" style="font-size: 14px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer mt-3">
+                <button type="button" class="btn-batalkan ms-2" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Batalkan </button>
+                <button type="submit" class="btn-warning-custom ms-2" style="background-color: #FFCA0D;">Simpan <i class="fa-solid fa-floppy-disk"></i></button>
+            </div>
+		</div>
+	</div>
+</div>
+                
+<!-- Modal -->
+<div class="modal fade" id="modalkpiprogram" tabindex="-1" aria-labelledby="modalkpiprogram" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #000000;">
+        <h5 class="modal-title" style="color: #FFCA0D; font-weight: 600;">Add Data Program</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFCA0D;"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function showModalKPIProgram (url, title) {
+		$.ajax({
+			type: "GET",
+			url: '/RencanaKerjaPendidikan/KPIProgramAddOrEdit/',
+			success: function (response) {
+				$("#modalkpiprogram .modal-body").html(response);
+				$("#modalkpiprogram .modal-title").html(title);
+				$("#modalkpiprogram").modal('show');
+			},
+			error: function (error) {
+				alert('Maaf, terjadi kesalahan sistem.');
+			}
+		});
+
+	}
+</script>
+
+<script type="text/javascript">
+    // Virtual Select
+    VirtualSelect.init({ 
+        ele: '#multipleSelect' 
+    });
+</script>

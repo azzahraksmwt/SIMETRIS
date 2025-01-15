@@ -1,0 +1,29 @@
+@model CREDA_App.Models.TR_BatasWaktuPengisian
+@{
+    Layout = null;
+}
+
+<form asp-action="BatasWaktuPengisianAddOrEdit" asp-route-id="@Model.id" enctype="multipart/form-data">
+    <div class="form-group margin-top-md">
+        <label>Tahun Dokumen</label>
+        <input type="text" asp-for="tahun_dokumen" class="form-control mt-2">
+        <span asp-validation-for="tahun_dokumen" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <label>Tanggal Mulai</label>
+        <input type="date" asp-for="tanggal_mulai" class="form-control mt-2">
+    </div>
+
+     <div class="form-group mt-3">
+        <label>Tanggal Berakhir</label>
+        <input type="date" asp-for="tanggal_berakhir" class="form-control mt-2">
+    </div>
+
+    <input asp-for="created_at" id="created_at" name="created_at" type="datetime-local" hidden>
+
+    <div class="modal-footer mt-3">
+        <button type="button" class="btn-batalkan ms-2" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Batalkan </button>
+        <button type="submit" class="btn-warning-custom ms-2" style="background-color: #FFCA0D;">Simpan <i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+</form>

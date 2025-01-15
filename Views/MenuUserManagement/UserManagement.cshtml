@@ -1,0 +1,161 @@
+@model List<CREDA_App.Models.User_Management>
+
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<partial name="~/Views/MenuMasterData/PartialsMasterData.cshtml"/>
+
+<div class="row gx-3 mt-5">
+    <div class="table-responsive">
+        <div class="border table-masterdata">
+            <table id="dataTableUserManagement" class="table align-middle table-hover m-0">
+                <thead class="text-title-tabel">
+                    <tr>
+                        <th class="tabel-th">ID Karyawan</th>
+                        <th class="tabel-th">Nama Karyawan</th>
+                        <th class="tabel-th">Email</th>
+                        <th class="tabel-th">Jenis Kelamin</th>
+                        <th class="tabel-th">Alamat</th>
+                        <th class="tabel-th">No Telepon</th>
+                        <th class="tabel-th">Status</th>
+                        <th class="tabel-th">Role</th>
+                        <th class="tabel-th"></th>
+                    </tr>
+                </thead>
+                <tbody class="text-tabel">
+                    @foreach (var data in Model)
+                    {
+                        if (data != null && data.deleted_at == null)
+                        {
+                            <tr>
+                                <td>@data.id_karyawan</td>
+                                <td>@data.nama_karyawan</td>
+                                <td>@data.email</td>
+                                <td>@data.jenis_kelamin</td>
+                                <td>@data.alamat</td>
+                                <td>@data.no_telepon</td>
+                                <td>@data.status</td>
+                                <td>@data.role</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <i id="dropdownToggle" class="fa-solid fa-ellipsis-vertical" onclick="toggleDropdownMenu()"></i>
+                                        <ul id="dropdownMenu" class="dropdown-menu" style="display: none; width: 5rem; min-width: 0rem">
+                                            <li>
+                                                <a class="dropdown-item" href="#" onclick="showModalUserManagement('@Url.Action("UserManagementAddOrEdit", "MenuUserManagementController", new { id = @data.id })', 'User Management', @data.id)">Ubah</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" onclick="confirmDeleteUserManagement(@data.id)">Hapus</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>                        
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalusermanagement" tabindex="-1" aria-labelledby="modalusermanagement" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #000000;">
+        <h5 class="modal-title" style="color: #FFCA0D; font-weight: 600;"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFCA0D;"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function showModalUserManagement (url, title, id) {
+		$.ajax({
+			type: "GET",
+			url: '/MenuUserManagement/UserManagementAddOrEdit/' + id,
+			success: function (response) {
+				$("#modalusermanagement .modal-body").html(response);
+				$("#modalusermanagement .modal-title").html(title);
+				$("#modalusermanagement").modal('show');
+			},
+			error: function (error) {
+				alert('Maaf, terjadi kesalahan sistem.');
+			}
+		});
+
+	}
+
+	function toggleDropdownMenu(event) {
+	 	event.stopPropagation();
+		var dropdownMenu = event.target.nextElementSibling;
+
+		var allDropdownMenus = document.querySelectorAll('.dropdown-menu');
+		allDropdownMenus.forEach(function(menu) {
+			if (menu !== dropdownMenu) {
+            	menu.style.display = 'none';
+        	}
+		});
+
+		if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
+			dropdownMenu.style.display = "block";
+		} else {
+			dropdownMenu.style.display = "none";
+		}
+    }
+
+	document.addEventListener('DOMContentLoaded', function() {
+		const dropdownIcons = document.querySelectorAll('.fa-solid.fa-ellipsis-vertical');
+		dropdownIcons.forEach(function(icon) {
+			icon.addEventListener('click', toggleDropdownMenu);
+		});
+	});
+
+	// Menutup dropdown saat mengklik di luar dropdown
+	window.addEventListener('click', function(event) {
+		const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+		dropdownMenus.forEach(function(menu) {
+			if (!menu.contains(event.target)) {
+				menu.style.display = 'none';
+			}
+		});
+	});
+
+	// Menutup dropdown saat mengklik di luar dropdown
+	window.onclick = function(event) {
+		if (!event.target.matches('.fa-solid')) {
+			var dropdowns = document.getElementsByClassName("dropdown-menu");
+			for (var i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	}
+
+
+</script>
+
+<script>
+    function confirmDeleteUserManagement(id) {
+        if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+            $.ajax({
+                url: '@Url.Action("DeleteUserManagement", "MenuUserManagement")',
+                type: 'POST', 
+                data: { id: id },
+                success: function(result) {
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    alert("Terjadi kesalahan: " + error);
+                }
+            });
+        }
+    }
+</script>

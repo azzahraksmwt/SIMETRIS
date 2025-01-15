@@ -1,0 +1,55 @@
+@* @model belajar_creda.Models.daftararea *@
+@{
+    Layout = null;
+}
+
+<form asp-action="KPIProgramAddOrEdit" enctype="multipart/form-data">
+
+    <div class="form-group margin-top-md">
+        <label style="font-weight: 500;">Nama KPI <span style="color: red;"> *</span></label>
+        <div class="form-check mt-2" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+            <select class="form-select">
+                <option value="" disabled selected>Pilih...</option>
+                <option value="1">Opsi 1</option>
+                <option value="2">Opsi 2</option>
+                <option value="3">Opsi 3</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        <label style="font-weight: 500;">Satuan <span style="color: red;"> *</span></label>
+        <div class="form-check mt-2" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+            <select class="form-select">
+                <option value="" disabled selected>Pilih...</option>
+                <option value="1">Opsi 1</option>
+                <option value="2">Opsi 2</option>
+                <option value="3">Opsi 3</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        <label style="font-weight: 500;">Jumlah KPI <span style="color: red;"> *</span></label>
+        <input type="text" placeholder="Input..." class="form-control mt-2">
+    </div>
+
+    <div class="form-group mt-3">
+        <label style="font-weight: 500;">RPJM <span style="color: red;"> *</span></label>
+        <div class="form-check mt-2" style="margin-bottom: 0px; min-height: 0px; padding-left: 0px;">
+            <select class="form-select">
+                <option value="" disabled selected>Pilih...</option>
+                <option value="1">Opsi 1</option>
+                <option value="2">Opsi 2</option>
+                <option value="3">Opsi 3</option>
+            </select>
+        </div>
+    </div>
+
+    @* <input asp-for="created_at" id="created_at" name="created_at" type="datetime-local" hidden> *@
+
+    <div class="modal-footer mt-3">
+        <button type="button" class="btn-batalkan ms-2" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Batalkan </button>
+        <button type="submit" class="btn-warning-custom ms-2" style="background-color: #FFCA0D;">Simpan <i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+</form>

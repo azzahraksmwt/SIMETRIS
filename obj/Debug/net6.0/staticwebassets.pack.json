@@ -1,0 +1,517 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CREDA-App.bundle.scp.css",
+      "PackagePath": "staticwebassets\\CREDA-App.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\FotoProfil\\2411252136_Avatar-Face-PNG-Image.png.png",
+      "PackagePath": "staticwebassets\\FotoProfil\\2411252136_Avatar-Face-PNG-Image.png.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\FotoProfil\\2411252835_Avatar-Face-PNG-Image.png.png",
+      "PackagePath": "staticwebassets\\FotoProfil\\2411252835_Avatar-Face-PNG-Image.png.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\FotoProfil\\2411253205_Avatar-Face-PNG-Image.png.png",
+      "PackagePath": "staticwebassets\\FotoProfil\\2411253205_Avatar-Face-PNG-Image.png.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\FotoProfil\\2411253334_Avatar-Face-PNG-Image.png.png",
+      "PackagePath": "staticwebassets\\FotoProfil\\2411253334_Avatar-Face-PNG-Image.png.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\FotoProfil\\2411253423_Avatar-Face-PNG-Image.png.png",
+      "PackagePath": "staticwebassets\\FotoProfil\\2411253423_Avatar-Face-PNG-Image.png.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\FotoProfil\\2501024543_magang.jpeg.jpeg",
+      "PackagePath": "staticwebassets\\FotoProfil\\2501024543_magang.jpeg.jpeg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\FotoProfil\\2501024649_botTradisi-avatar.png.png",
+      "PackagePath": "staticwebassets\\FotoProfil\\2501024649_botTradisi-avatar.png.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\FotoProfil\\Avatar-Face-PNG-Image.png",
+      "PackagePath": "staticwebassets\\FotoProfil\\Avatar-Face-PNG-Image.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\css\\custom_css.css",
+      "PackagePath": "staticwebassets\\css\\custom_css.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\css\\virtual-select.min.css",
+      "PackagePath": "staticwebassets\\css\\virtual-select.min.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\aktivitas1.png",
+      "PackagePath": "staticwebassets\\img\\aktivitas1.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\aktivitas2.png",
+      "PackagePath": "staticwebassets\\img\\aktivitas2.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\aktivitas3.png",
+      "PackagePath": "staticwebassets\\img\\aktivitas3.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\fitur-evaluasi.png",
+      "PackagePath": "staticwebassets\\img\\fitur-evaluasi.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\fitur-plan.png",
+      "PackagePath": "staticwebassets\\img\\fitur-plan.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-area.png",
+      "PackagePath": "staticwebassets\\img\\icon-area.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-donasi.png",
+      "PackagePath": "staticwebassets\\img\\icon-donasi.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-edit.png",
+      "PackagePath": "staticwebassets\\img\\icon-edit.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-ekonomi.png",
+      "PackagePath": "staticwebassets\\img\\icon-ekonomi.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-ekonomi.svg",
+      "PackagePath": "staticwebassets\\img\\icon-ekonomi.svg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-email.png",
+      "PackagePath": "staticwebassets\\img\\icon-email.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-email.svg",
+      "PackagePath": "staticwebassets\\img\\icon-email.svg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-kesehatan.png",
+      "PackagePath": "staticwebassets\\img\\icon-kesehatan.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-kesehatan.svg",
+      "PackagePath": "staticwebassets\\img\\icon-kesehatan.svg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-lingkungan.png",
+      "PackagePath": "staticwebassets\\img\\icon-lingkungan.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-lingkungan.svg",
+      "PackagePath": "staticwebassets\\img\\icon-lingkungan.svg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-pendidikan.png",
+      "PackagePath": "staticwebassets\\img\\icon-pendidikan.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-pendidikan.svg",
+      "PackagePath": "staticwebassets\\img\\icon-pendidikan.svg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-periode.png",
+      "PackagePath": "staticwebassets\\img\\icon-periode.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-perusahaan.png",
+      "PackagePath": "staticwebassets\\img\\icon-perusahaan.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-programkerja.png",
+      "PackagePath": "staticwebassets\\img\\icon-programkerja.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-skor.png",
+      "PackagePath": "staticwebassets\\img\\icon-skor.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-statusrenja.png",
+      "PackagePath": "staticwebassets\\img\\icon-statusrenja.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-tanggapdarurat.png",
+      "PackagePath": "staticwebassets\\img\\icon-tanggapdarurat.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-tanggapdarurat.svg",
+      "PackagePath": "staticwebassets\\img\\icon-tanggapdarurat.svg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-uang.png",
+      "PackagePath": "staticwebassets\\img\\icon-uang.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\icon-unit.png",
+      "PackagePath": "staticwebassets\\img\\icon-unit.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\indonesiaHigh.svg",
+      "PackagePath": "staticwebassets\\img\\indonesiaHigh.svg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\landing-page-background.png",
+      "PackagePath": "staticwebassets\\img\\landing-page-background.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\landing-page-frame1.png",
+      "PackagePath": "staticwebassets\\img\\landing-page-frame1.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\landing-page-frame2.png",
+      "PackagePath": "staticwebassets\\img\\landing-page-frame2.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\landing-page-frame3.png",
+      "PackagePath": "staticwebassets\\img\\landing-page-frame3.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\location.svg",
+      "PackagePath": "staticwebassets\\img\\location.svg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logo-creda.png",
+      "PackagePath": "staticwebassets\\img\\logo-creda.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logo-dummy.png",
+      "PackagePath": "staticwebassets\\img\\logo-dummy.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logo-ut.png",
+      "PackagePath": "staticwebassets\\img\\logo-ut.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUT.png",
+      "PackagePath": "staticwebassets\\img\\logoUT.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUTACTION-mini.png",
+      "PackagePath": "staticwebassets\\img\\logoUTACTION-mini.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUTACTION.png",
+      "PackagePath": "staticwebassets\\img\\logoUTACTION.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUTCARE-mini.png",
+      "PackagePath": "staticwebassets\\img\\logoUTCARE-mini.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUTCARE.png",
+      "PackagePath": "staticwebassets\\img\\logoUTCARE.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUTFUTURE-mini.png",
+      "PackagePath": "staticwebassets\\img\\logoUTFUTURE-mini.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUTFUTURE.png",
+      "PackagePath": "staticwebassets\\img\\logoUTFUTURE.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUTGROWTH-mini.png",
+      "PackagePath": "staticwebassets\\img\\logoUTGROWTH-mini.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUTGROWTH.png",
+      "PackagePath": "staticwebassets\\img\\logoUTGROWTH.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUTREES.png",
+      "PackagePath": "staticwebassets\\img\\logoUTREES.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\logoUTTREES-mini.png",
+      "PackagePath": "staticwebassets\\img\\logoUTTREES-mini.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\map-id.svg",
+      "PackagePath": "staticwebassets\\img\\map-id.svg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\submenumasterdata1.png",
+      "PackagePath": "staticwebassets\\img\\submenumasterdata1.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\submenumasterdata2.png",
+      "PackagePath": "staticwebassets\\img\\submenumasterdata2.png"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\img\\user-avatar.jpg",
+      "PackagePath": "staticwebassets\\img\\user-avatar.jpg"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\js\\custom_js.js",
+      "PackagePath": "staticwebassets\\js\\custom_js.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\js\\leaflet-init.js",
+      "PackagePath": "staticwebassets\\js\\leaflet-init.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\js\\virtual-select.min.js",
+      "PackagePath": "staticwebassets\\js\\virtual-select.min.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\bootstrap-5.0.2\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-5.0.2\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Perkuliahan\\prakerin\\dotnet\\belajar-dotnet\\CREDA-App\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CREDA-App.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.CREDA-App.props",
+      "PackagePath": "build\\CREDA-App.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.CREDA-App.props",
+      "PackagePath": "buildMultiTargeting\\CREDA-App.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.CREDA-App.props",
+      "PackagePath": "buildTransitive\\CREDA-App.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

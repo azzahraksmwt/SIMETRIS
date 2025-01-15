@@ -1,0 +1,99 @@
+@model List<VW_SC_ListAllDashboardPilar>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="py-4" style="font-size: 24px; font-weight: 600">
+    Daftar Skor Pemetaan Pilar
+</div>
+
+<div class="row gx-3">
+    <div class="table-responsive">
+        <div class="table-masterdata">
+            <table id="dataTabelPemetaanPilar" class="table align-middle table-hover m-0 border">
+                <thead class="text-title-tabel">
+                    <tr>
+                        <th class="tabel-th text-center">No</th>
+                        <th class="tabel-th">Kode Cabang</th>
+                        <th class="tabel-th">Nama Cabang</th>
+                        <th class="tabel-th text-center">Pendidikan</th>
+                        <th class="tabel-th text-center">Kesehatan</th>
+                        <th class="tabel-th text-center">Ekonomi</th>
+                        <th class="tabel-th text-center">Lingkungan</th>
+                        <th class="tabel-th text-center">Tanggap Darurat</th>
+                        <th class="tabel-th text-center">Total Skor</th>
+                        <th class="tabel-th">Status Akhir</th>
+                    </tr>
+                </thead>
+                <tbody class="text-tabel">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        var data = Model[i];
+                        if (data != null)
+                        {
+                            <tr>
+                                <td class="text-center">@(i + 1)</td>
+                                <td>@data.kode_cabang</td>
+                                <td>@data.nama_cabang</td>
+                                <td class="text-center">@data.jumlah_pendidikan</td>
+                                <td class="text-center">@data.jumlah_kesehatan</td>
+                                <td class="text-center">@data.jumlah_ekonomi</td>
+                                <td class="text-center">@data.jumlah_lingkungan</td>
+                                <td class="text-center">@data.jumlah_tanggapdarurat</td>
+                                <td class="text-center">@data.total_skor</td>
+                                <td>
+                                    @{
+                                        var backgroundColor = "";
+                                        var buttonText = data.prioritas;
+                                        
+                                        switch (buttonText)
+                                        {
+                                            case "Prioritas Utama":
+                                                backgroundColor = "#F8183E";
+                                                break;
+                                            case "Prioritas Sedang":
+                                                backgroundColor = "#D63384";
+                                                break;
+                                            case "Membutuhkan":
+                                                backgroundColor = "#FFCA0D";
+                                                break;
+                                            case "Baik":
+                                                backgroundColor = "#0D6EFD";
+                                                break;
+                                            case "Sangat Baik":
+                                                backgroundColor = "#13CE66";
+                                                break;
+                                            default:
+                                                backgroundColor = "btn-secondary";
+                                                break;
+                                        }
+                                    }
+                                    <a asp-action="SkorPemetaanPilar" asp-controller="PemetaanPilarMonografiWilayah" asp-route-kode_cabang="@data.kode_cabang" class="btn btn-warning text-white" role="button" style="background-color: @backgroundColor; border-color: transparent;">@buttonText</a>
+                                </td>
+                            </tr>
+                        } 
+                    }               
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- DataTables Initialization -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dataTabelPemetaanPilar').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+
+        $('.dataTables_filter').css('margin-bottom', '15px');
+        $('.dataTables_paginate').css('margin-top', '10px');
+        $('.dataTables_info').css('margin-top', '10px');
+    });
+</script>
